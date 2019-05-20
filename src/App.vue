@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 import $ from "jquery";
 $(document).scroll(function() {
   if ($(this).scrollTop()) {

@@ -1,0 +1,23 @@
+@mixin cellPhone() {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin pad() {
+  @media (min-width: 577px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin padTOdeskTop() {
+  @media (min-width: 769px) and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin deskTop() {
+  @media (min-width: 992px) {
+    @content;
+  }
+}

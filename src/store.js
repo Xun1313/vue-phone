@@ -6,7 +6,7 @@ Vue.use(Vuex);
 import cartModule from './cart';
 
 export default new Vuex.Store({
-  strict:true,
+  //strict:true,
   
   actions: {
     updateLoading(context, status) {
@@ -35,6 +35,7 @@ export default new Vuex.Store({
       state.isLoading = status;
     },
     GETPRODUCT(state, payload) {
+      payload.num ? '' : payload.num=1
       state.product = payload;
     },
     GETALLPRODUCTS(state, payload) {

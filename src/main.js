@@ -10,7 +10,7 @@ import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 import VeeValidate from 'vee-validate';
 import VueI18n from 'vue-i18n';
-import zhTW from 'vee-validate/dist/locale/zh_TW';
+import validationMessages from 'vee-validate/dist/locale/zh_TW';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -42,15 +42,13 @@ Vue.directive('focus', {
   },
 });
 Vue.use(VueI18n);
-//Vue.use(VeeValidate);
 
-const i18n = new VueI18n({
-  locale: 'zhTW',
-});
+const i18n = new VueI18n();
+i18n.locale='zhTW'
 Vue.use(VeeValidate, {
   i18n,
   dictionary: {
-    zhTW,
+    zhTW: validationMessages,
   },
 });
 

@@ -8,7 +8,6 @@ export default {
     getCart(context, payload) {
       context.commit('LOADING', true, { root: true });
       axios.get(`${process.env.VUE_APP_API}/api/adam/cart`).then(res => {
-        console.log(res);
         context.commit('GETCART', res.data.data.carts);
         context.commit('LOADING', false, { root: true });
       });

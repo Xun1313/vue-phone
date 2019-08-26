@@ -10,12 +10,19 @@
       required
       autofocus
       v-model="user.username"
-    >
+    />
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required v-model="user.password">
+    <input
+      type="password"
+      id="inputPassword"
+      class="form-control"
+      placeholder="Password"
+      required
+      v-model="user.password"
+    />
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" value="remember-me" /> Remember me
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
@@ -35,25 +42,25 @@ export default {
         username: "",
         password: ""
       },
-      process:''
+      process: ""
     };
   },
   methods: {
-    signIn(){
-      this.$http.post(`${process.env.VUE_APP_API}/admin/signin`,this.user).then(res=>{
-      console.log(res.data);
-      if (res.data.success) {
-        this.$router.push('/admin')
-      }
-    })
-    
+    signIn() {
+      this.$http
+        .post(`${process.env.VUE_APP_API}/admin/signin`, this.user)
+        .then(res => {
+          console.log(res);
+          if (res.data.success) {
+            this.$router.push("/admin");
+          }
+        });
     }
   },
   created() {
-    this.process=`${process.env.VUE_APP_API}`
+    this.process = `${process.env.VUE_APP_API}`;
     console.log(this.process);
-    
-  },
+  }
 };
 </script>
 

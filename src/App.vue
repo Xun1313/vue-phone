@@ -1,13 +1,12 @@
 <template>
   <div id="app">
     <loading :active.sync="isLoading"></loading>
-    <router-view/>
+    <router-view />
     <i class="fas fa-arrow-circle-up fa-2x arrow" @click="top"></i>
   </div>
 </template>
 
 <script>
-
 import $ from "jquery";
 $(document).scroll(function() {
   if ($(this).scrollTop()) {
@@ -24,13 +23,9 @@ export default {
     }
   },
   computed: {
-    isLoading(){
-      return this.$store.state.isLoading
+    isLoading() {
+      return this.$store.state.isLoading;
     }
-  },
-  created() {
-    console.log(`${process.env.VUE_APP_API}`);
-    
   },
 };
 </script>
@@ -38,8 +33,8 @@ export default {
 <style lang="scss">
 @import "./src/assets/all";
 
-body{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .arrow {
@@ -48,5 +43,4 @@ body{
   bottom: 5px;
   right: 5px;
 }
-
 </style>

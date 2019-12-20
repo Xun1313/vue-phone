@@ -7,7 +7,7 @@ import cartModule from './cart';
 
 export default new Vuex.Store({
   //strict:true,
-  
+
   actions: {
     updateLoading(context, status) {
       context.commit('LOADING', status);
@@ -35,7 +35,7 @@ export default new Vuex.Store({
       state.isLoading = status;
     },
     GETPRODUCT(state, payload) {
-      payload.num ? '' : payload.num=1
+      payload.num ? '' : (payload.num = 1);
       state.product = payload;
     },
     GETALLPRODUCTS(state, payload) {
@@ -57,15 +57,18 @@ export default new Vuex.Store({
   },
   //儲存資料
   state: {
-    //isLoading: false,
+    isLoading: false,
     product: {},
     AllProducts: [],
     categories: [],
     brand: '全部',
-    price: '請選擇',
+    price: '',
   },
   //類似computed
   getters: {
+    isLoading(state) {
+      return state.isLoading;
+    },
     AllProducts(state) {
       return state.AllProducts;
     },
@@ -79,7 +82,7 @@ export default new Vuex.Store({
       return state.price;
     },
     categories(state) {
-      return ['全部',...state.categories];
+      return ['全部', ...state.categories];
     },
   },
   modules: {

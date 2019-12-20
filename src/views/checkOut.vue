@@ -1,7 +1,7 @@
 <template>
   <div class="my-5 d-flex flex-column justify-content-center container">
-    <progresses class="my-3"></progresses>
-    <router-view class="my-3"></router-view>
+    <progresses/>
+    <router-view></router-view>
   </div>
 </template>
 

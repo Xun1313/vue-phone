@@ -6,8 +6,8 @@ import VueAxios from 'vue-axios';
 import 'bootstrap';
 import './bus';
 import currency from './components/filter/currency';
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
+/* import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css'; */
 import VeeValidate from 'vee-validate';
 import VueI18n from 'vue-i18n';
 import validationMessages from 'vee-validate/dist/locale/zh_TW';
@@ -32,7 +32,7 @@ Vue.use(VueGoogleMaps, {
 });
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
-Vue.component('Loading', Loading);
+//Vue.component('Loading', Loading);
 axios.defaults.withCredentials = true;
 Vue.filter('currency', currency);
 
@@ -63,10 +63,10 @@ new Vue({
 }).$mount('#app');
 
 router.beforeEach((to, from, next) => {
-  console.log('to', to, 'from', from, 'next', next);
+  //console.log('to', to, 'from', from, 'next', next);
   if (to.meta.requiresAuth) {
     axios.post(`${process.env.VUE_APP_API}/api/user/check`).then(res => {
-      console.log(res.data);
+      //console.log(res.data);
       if (res.data.success) {
         next();
       } else {

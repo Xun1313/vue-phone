@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <loading :active.sync="isLoading"></loading>
+    <!-- <loading :active.sync="isLoading"></loading> -->
     <router-view />
     <i class="fas fa-arrow-circle-up fa-2x arrow" @click="top"></i>
   </div>
@@ -22,19 +22,24 @@ export default {
       $("html,body").animate({ scrollTop: 0 }, 1000);
     }
   },
-  computed: {
+  /* computed: {
     isLoading() {
       return this.$store.state.isLoading;
     }
-  },
+  }, */
 };
 </script>
 
 <style lang="scss">
 @import "./src/assets/all";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+@import './assets/_variable.scss';
+html, body {
+  font-family: 'Noto Sans TC', sans-serif;
+}
 
-body {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+#app {
+  font-family: 'Noto Sans TC', sans-serif;
 }
 
 .arrow {
@@ -42,5 +47,6 @@ body {
   position: fixed;
   bottom: 5px;
   right: 5px;
+  color: $important
 }
 </style>

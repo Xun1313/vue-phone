@@ -3,10 +3,10 @@
     <div class="carousel-inner">
       <div class="carousel-item active" data-interval="3000">
         <div class="carousel-product carousel-product-1">
-          <p>
+          <!-- <p>
   告 別 舊 機
   迎 接 新 機
-          </p>
+          </p> -->
         </div>
       </div>
       <div class="carousel-item" data-interval="3000">
@@ -34,10 +34,9 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../assets/_grid.scss";
 @import "../assets/_mixin.scss";
-
 .carousel-product {
   @include bg();
   width: 100%;

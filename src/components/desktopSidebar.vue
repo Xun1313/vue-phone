@@ -1,83 +1,115 @@
 <template>
-  <div class="flex-column mt-5 align-items-center desk">
-    <p>
-      <i class="fas fa-tasks"></i>
-      篩選
-    </p>
-    <ul class="list-group list-group-flush rounded">
-      <li class="list-group-item btn btn-outline-secondary rounded p-0">
-        <div class="btn-group dropright">
-          <a
-            class="dropdown-toggle p-3"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >{{brand}}</a>
-          <div class="dropdown-menu">
-            <a
-              class="dropdown-item btn btn-outline-secondary"
-              href="#"
-              v-for="(item,i) in categories"
-              :key="i"
-              @click.prevent="filterBrand(item)"
-            >{{item}}</a>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item btn btn-outline-secondary rounded p-0">
-        <div class="btn-group dropright">
-          <a
-            class="dropdown-toggle p-3"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >{{price}}</a>
-          <div class="dropdown-menu">
-            <a
-              class="dropdown-item btn btn-outline-secondary"
-              href="#"
-              v-for="(item, index) in priceArr"
-              :key="item+index"
-              @click.prevent="priceSort(item)"
-            >{{item}}</a>
-          </div>
-        </div>
-      </li>
+  <div class="flex-column align-items-center desk">
+    <span>品牌</span>
+    <ul class="brand">
+      <li class="brand-item" :class="{ focus: item === brand }" v-for="(item, i) in categories" :key="item + i" @click="filterBrand(item)">{{ item }}</li>
     </ul>
+
+    <span>價格</span>
+    <ul class="price">
+      <li class="price-item" :class="{ focus: item === price }" v-for="(item, index) in priceArr" :key="item + index" @click="priceSort(item)">{{ item }}</li>
+    </ul>
+
+    <div class="reset">
+      <i class="fa fa-caret-right"></i>
+      <div class="reset-word" @click="resetHandler()">重新篩選</div>
+    </div>
+    <!-- <ul class="list-group list-group-flush rounded">
+      <li class="list-group-item btn btn-outline-secondary rounded p-0">
+        <div class="btn-group dropright">
+          <a class="dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ brand }}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item btn btn-outline-secondary" href="#" v-for="(item, i) in categories" :key="i" @click.prevent="filterBrand(item)">{{ item }}</a>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item btn btn-outline-secondary rounded p-0">
+        <div class="btn-group dropright">
+          <a class="dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ price }}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item btn btn-outline-secondary" href="#" v-for="(item, index) in priceArr" :key="item + index" @click.prevent="priceSort(item)">{{ item }}</a>
+          </div>
+        </div>
+      </li>
+    </ul> -->
   </div>
   <!-- style="height:0" -->
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      priceArr: ["請選擇", "由高~低", "由低~高"]
+      priceArr: ['由高~低', '由低~高'],
     };
   },
   methods: {
     filterBrand(brand) {
-      this.$store.commit("BRAND", brand);
+      this.$store.commit('BRAND', brand);
     },
     priceSort(level) {
-      this.$store.commit("PRICE", level);
-    }
+      this.$store.commit('PRICE', level);
+    },
+    resetHandler() {
+      this.$store.commit('BRAND', '全部');
+      this.$store.commit('PRICE', '');
+    },
   },
   computed: {
-    ...mapGetters(["brand", "categories"]),
+    ...mapGetters(['brand', 'categories']),
     price() {
       return this.$store.getters.price;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss">
-@import "../assets/_grid.scss";
+@import '../assets/_grid.scss';
+@import '../assets/_variable.scss';
+.brand,
+.price {
+  list-style: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 0;
+  width: 100%;
+  &-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+.focus {
+  //關注到的顏色
+  background-color: $important;
+  color: white;
+}
+.reset {
+  display: flex;
+  align-items: center;
+  transition: 0.5s all;
+  color: white;
+  background-color: $important;
+  width: 100%;
+  justify-content: center;
+  padding: 5px 0;
+  cursor: pointer;
+  &:hover {
+    color: $important;
+    background-color: white;
+  }
+  &-word {
+    margin-left: 5px;
+  }
+}
 .desk {
   display: none;
   //overflow: hidden;
-  @include deskTop {
+  @include padTOdeskTop {
     display: flex;
   }
 }

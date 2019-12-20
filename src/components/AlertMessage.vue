@@ -62,13 +62,17 @@ export default {
   }
 };
 </script>
-
-<style scope>
+<style lang="scss" scoped>
+@import '../assets/_variable.scss';
 .message-alert {
   position: fixed;
   max-width: 50%;
   top: 56px;
   right: 20px;
   z-index: 1100;
+  .alert-danger{
+    background-color: white;
+    color: $important;
+  }
 }
 </style>

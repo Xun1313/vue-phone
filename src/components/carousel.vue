@@ -99,7 +99,6 @@
     white-space: pre;
     background-color: black;
     opacity: 0.5;
-    border-radius: 50%;
   }
 }
 .carousel-caption {

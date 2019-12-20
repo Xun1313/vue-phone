@@ -112,7 +112,7 @@
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <!-- <gmap-map :center="center" :zoom="7" style="width: 100%; height: 500px">
+          <gmap-map :center="center" :zoom="7" style="width: 100%; height: 500px">
             <gmap-info-window
               :options="infoOptions"
               :position="infoWindowPos"
@@ -126,7 +126,7 @@
               :clickable="true"
               @click="toggleInfoWindow(m,i)"
             ></gmap-marker>
-          </gmap-map> -->
+          </gmap-map>
         </div>
       </div>
     </div>
@@ -168,7 +168,7 @@ export default {
     };
   },
   methods: {
-    /* toggleInfoWindow(marker, idx) {
+    toggleInfoWindow(marker, idx) {
       this.infoWindowPos = marker.position;
       this.infoContent = marker.infoText;
       //check if its the same marker that was selected if yes toggle
@@ -180,7 +180,7 @@ export default {
         this.infoWinOpen = true;
         this.currentMidx = idx;
       }
-    } */
+    }
   },
   mounted() {
     var swiper = new Swiper('.swiper-container', {

@@ -156,7 +156,11 @@ export default {
 video {
   width: 100%;
   display: block;
-  margin: auto;
+  margin-top: 60px;
+  @include padTOdeskTop{
+    margin-top: 150px;
+    height: 70vh;
+  }
 }
 .sony-video-1 {
   max-height: 400px;

@@ -1,5 +1,5 @@
 <template>
-  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+  <div id="carouselExampleFade" class="carousel slide carousel-fade all" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-interval="3000">
         <div class="carousel-product carousel-product-1">
@@ -17,8 +17,7 @@
       <div class="carousel-item" data-interval="3000">
         <div class="carousel-product carousel-product-3">
           <p>
-            大 不 凡
-            你的掌上巨屏
+            大 不 凡 你的掌上巨屏
           </p>
         </div>
       </div>
@@ -35,23 +34,29 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/_grid.scss";
-@import "../assets/_mixin.scss";
+@import '../assets/_grid.scss';
+@import '../assets/_mixin.scss';
+.all {
+  margin-top: 60px;
+  @include padTOdeskTop() {
+    margin-top: 114px;
+  }
+}
 .carousel-product {
   @include bg();
   width: 100%;
-  height: 100vh;
-  @include cellPhone() {
-    height: 45vh;
+  height: 45vh;
+  @include padTOdeskTop() {
+    height: 100vh;
   }
-  p{
-    padding:0 10px;
+  p {
+    padding: 0 10px;
   }
   //position: absolute;
 }
 
 .carousel-product-1 {
-  background-image: url("../assets/carousel/carousel-product-1.jpg");
+  background-image: url('../assets/carousel/carousel-product-1.jpg');
   p {
     position: absolute;
     bottom: 0%;
@@ -71,7 +76,7 @@
   }
 }
 .carousel-product-2 {
-  background-image: url("../assets/carousel/carousel-product-2.jpg");
+  background-image: url('../assets/carousel/carousel-product-2.jpg');
   p {
     position: absolute;
     bottom: 0%;
@@ -88,7 +93,7 @@
   }
 }
 .carousel-product-3 {
-  background-image: url("../assets/carousel/carousel-product-3.jpg");
+  background-image: url('../assets/carousel/carousel-product-3.jpg');
   p {
     position: absolute;
     bottom: 0%;

@@ -313,6 +313,7 @@ export default {
     .line {
       border-bottom: 1px solid white;
       padding-bottom: 5px;
+      width: 100%;
     }
     &-coupon {
       margin-bottom: 20px;

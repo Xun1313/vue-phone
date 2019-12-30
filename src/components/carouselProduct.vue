@@ -1,7 +1,7 @@
 <template>
   <div id="carouselExampleFade" class="carousel slide carousel-fade all" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active" data-interval="3000">
+      <div class="carousel-item active" data-interval="2000">
         <div class="carousel-product carousel-product-1">
           <!-- <p>
   告 別 舊 機
@@ -9,12 +9,12 @@
           </p> -->
         </div>
       </div>
-      <div class="carousel-item" data-interval="3000">
+      <div class="carousel-item" data-interval="2000">
         <div class="carousel-product carousel-product-2">
           <p>輕易 不說完美</p>
         </div>
       </div>
-      <div class="carousel-item" data-interval="3000">
+      <div class="carousel-item" data-interval="2000">
         <div class="carousel-product carousel-product-3">
           <p>
             大 不 凡 你的掌上巨屏

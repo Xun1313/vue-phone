@@ -8,7 +8,7 @@
           <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active" data-interval="3000">
+          <div class="carousel-item active" data-interval="2500">
             <div class="img img1"></div>
             <!-- <img src="../assets/carousel/carousel-1.jpg" class="rounded d-block w-100" alt="..." /> -->
             <div class="carousel-caption d-md-flex carousel-title-1">
@@ -18,7 +18,7 @@
               </p>
             </div>
           </div>
-          <div class="carousel-item" data-interval="3000">
+          <div class="carousel-item" data-interval="2500">
             <div class="img img2"></div>
             <!-- <img src="../assets/carousel/carousel-2.jpg" class="rounded d-block w-100" alt="..." /> -->
             <div class="carousel-caption d-md-flex carousel-title-2">
@@ -28,7 +28,7 @@
               </p>
             </div>
           </div>
-          <div class="carousel-item" data-interval="3000">
+          <div class="carousel-item" data-interval="2500">
             <div class="img img3"></div>
             <!-- <img src="../assets/carousel/carousel-3.jpg" class="rounded d-block w-100" alt="..." /> -->
             <div

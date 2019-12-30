@@ -86,14 +86,14 @@
                 </div>
                 <div class="card-body-cart" @click.prevent="addtoCart(item.id)">
                   <i class="fas fa-shopping-cart"></i>
-                  <div class="card-body-cart-word">加入購物車</div>
+                  <button type="button" class="card-body-cart-word">加入購物車</button>
                 </div>
               </div>
               <div class="card-footer bg-white">
-                <div class="card-footer-buy" @click="getProduct(item.id)">
+                <button type="button" class="card-footer-buy" @click="getProduct(item.id)">
                   <i class="fa fa-caret-right" style="padding-left:3px;"></i>
                   立即搶購
-                </div>
+                </button>
               </div>
             </div>
           </div>
@@ -131,10 +131,10 @@
                   小計
                   <strong>{{ product.price * product.num }}</strong>
                 </div>
-                <div class="modal-footer-cart" @click="addtoCart(product.id, product.num)">
+                <button type="button" class="modal-footer-cart" @click="addtoCart(product.id, product.num)">
                   <i class="fas fa-shopping-cart"></i>
-                  <div>加到購物車</div>
-                </div>
+                  加到購物車
+                </button>
               </div>
             </div>
           </div>
@@ -280,8 +280,19 @@ export default {
       color: white;
       background-color: $important;
     }
+    &:hover > &-word {
+      color: white;
+      background-color: $important;
+    }
     &-word {
+      transition: 0.5s all;
+      color: $important;
+      background-color: white;
       margin-left: 5px;
+      border: none;
+      &:focus {
+        outline: none;
+      }
     }
   }
 }
@@ -306,6 +317,9 @@ export default {
     cursor: pointer;
     padding: 5px 15px;
     transition: 0.5s all;
+    &:focus{
+      outline: none;
+    }
     &:hover {
       color: $important;
       background-color: white;
@@ -327,9 +341,13 @@ export default {
     cursor: pointer;
     text-align: center;
     transition: 0.5s all;
+    width: 100%;
     &:hover {
       color: $important;
       background-color: white;
+    }
+    &:focus{
+      outline: none;
     }
   }
 }

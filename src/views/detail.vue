@@ -43,10 +43,10 @@
             <strong>{{ (product.price * product.num) | currency }}</strong>
           </div>
           <!-- <button type="button" class="btn bg-dark text-white ml-auto d-block"></button> -->
-          <div class="cart" @click="addtoCart(product.id, product.num)">
+          <button type="button" class="cart" @click="addtoCart(product.id, product.num)">
             <i class="fas fa-shopping-cart"></i>
             <span>加到購物車</span>
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -141,7 +141,11 @@ export default {
   cursor: pointer;
   text-align: center;
   transition: 0.5s all;
+  display: block;
   width: 200px;
+  &:focus {
+    outline: none;
+  }
   &:hover {
     color: $important;
     background-color: white;

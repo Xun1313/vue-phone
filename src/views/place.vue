@@ -8,7 +8,7 @@
           <div class="subtitle" data-swiper-parallax="-200">大型專賣店</div>
           <div class="text" data-swiper-parallax="-100">
             <p>
-              台北三創門市在2015年5月成立於台北市十大建設之一的三創生活園區內，門市經營團隊擁有專業3C商品銷售經驗，秉持著以客為尊及VIP尊爵服務的信念，每一份用心都在期許讓消費者能得到更完善且優質的3C購物環境，店內展示全系列產品，提供顧客完整的體驗，可以安心享受科技為人類帶來的便利。門市人員更重視與顧客的一對一互動，提供最完善的銷售服務！
+              台北三創門市在2015年5月成立於台北市十大建設之一的三創生活園區內，門市經營團隊擁有專業3C商品銷售經驗，店內展示全系列產品，提供顧客完整的體驗。
             </p>
           </div>
         </div>
@@ -17,8 +17,8 @@
           <div class="subtitle" data-swiper-parallax="-200">大型專賣店</div>
           <div class="text" data-swiper-parallax="-100">
             <p>
-              台中公益大型專賣店在2018年9月份開幕，於台中公益商圈提供專業及在地化服務。門市內有全系列實機展示、VIVE
-              HOME情境體驗區、多元配件及精品周邊、維修站進駐及數位教室等服務。蔡家國際因擁有十多年專業3C商品銷售經驗，每一份的用心都在期許著讓消費者能得到更完善且優質3C購物環境，且可以安心享受科技為人們帶來的便利。
+              台中公益大型專賣店在2018年9月份開幕。門市內有全系列實機展示、VIVE
+              HOME情境體驗區、多元配件及精品周邊、維修站進駐及數位教室等服務。
             </p>
           </div>
         </div>
@@ -27,7 +27,7 @@
           <div class="subtitle" data-swiper-parallax="-200">大型專賣店</div>
           <div class="text" data-swiper-parallax="-100">
             <p>
-              高雄大型專賣店坐落於南台灣3C指標商圈之建國商圈，秉持南台灣的熱情我們提供喜歡的朋友一起來交流分享使用經驗與體驗多元服務。蔡家國際因擁有十多年專業3C商品銷售經驗，每一份的用心都在期許著讓消費者能得到更完善且優質3C購物環境，且可以安心享受科技為人類帶來的便利。
+              高雄大型專賣店坐落於南台灣3C指標商圈之建國商圈，秉持南台灣的熱情我們提供喜歡的朋友一起來交流分享使用經驗與體驗多元服務。
             </p>
           </div>
         </div>
@@ -48,9 +48,9 @@
           <div class="accordion" id="accordionExample">
             <div class="card">
               <div class="card-header" id="headingOne">
-                <h2 class="mb-0 text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   台北
-                </h2>
+                </button>
               </div>
 
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -70,9 +70,9 @@
             </div>
             <div class="card">
               <div class="card-header" id="headingOne">
-                <h2 class="mb-0 text-center" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <button type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                   台中
-                </h2>
+                </button>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
@@ -91,9 +91,9 @@
             </div>
             <div class="card">
               <div class="card-header" id="headingOne">
-                <h2 class="mb-0 text-center" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <button type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                   高雄
-                </h2>
+                </button>
               </div>
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
@@ -112,7 +112,7 @@
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <gmap-map :center="center" :zoom="7" style="width: 100%; height: 500px">
+          <!-- <gmap-map :center="center" :zoom="7" style="width: 100%; height: 500px">
             <gmap-info-window
               :options="infoOptions"
               :position="infoWindowPos"
@@ -126,7 +126,7 @@
               :clickable="true"
               @click="toggleInfoWindow(m,i)"
             ></gmap-marker>
-          </gmap-map>
+          </gmap-map> -->
         </div>
       </div>
     </div>
@@ -180,7 +180,7 @@ export default {
         this.infoWinOpen = true;
         this.currentMidx = idx;
       }
-    }
+    },
   },
   mounted() {
     var swiper = new Swiper('.swiper-container', {
@@ -282,19 +282,28 @@ body {
   line-height: 2;
 }
 .card {
-  h2 {
-    text-align: center;
+  &-header {
+    padding: 0;
     button {
-      font-size: 40px;
+      width: 100%;
+      padding: 10px;
+      font-size: 26px;
+      background-color: $important;
       color: white;
+      &:focus {
+        outline: none;
+      }
     }
   }
-  &-header {
-    background-color: $important;
-    color: white;
-    cursor: pointer;
-  }
 }
-.place-title {
+.text {
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    margin: 20px 0;
+  }
 }
 </style>

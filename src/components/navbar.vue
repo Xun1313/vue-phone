@@ -147,8 +147,12 @@ label {
     color: white;
     font-size: 40px;
     margin: 0 auto 0 5px;
+    @include padTOdeskTop {
+      margin: 0 auto;
+    }
     text-align: center;
     padding: 0;
+    width: 78px;
     &:hover {
       color: white;
       text-decoration: none;
@@ -227,17 +231,6 @@ label {
 import { mapGetters, mapActions } from 'vuex';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
-/* import $ from 'jquery';
-$(document).scroll(function() {
-  if (!$(this).scrollTop()) {
-    $('.phone').removeClass('important');
-  } else {
-    $('.phone').addClass('important');
-  }
-}); */
-/* $(".phone-side a").click(function(e) {
-  $(".phone-side").prev().prev()
-}); */
 export default {
   data() {
     return {

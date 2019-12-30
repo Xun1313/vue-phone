@@ -2,17 +2,21 @@
   <div class="flex-column align-items-center desk">
     <span>品牌</span>
     <ul class="brand">
-      <li class="brand-item" :class="{ focus: item === brand }" v-for="(item, i) in categories" :key="item + i" @click="filterBrand(item)">{{ item }}</li>
+      <li class="brand-item" :class="{ focus: item === brand }" v-for="(item, i) in categories" :key="item + i" @click="filterBrand($event,item)">
+        <a href="#" :class="{ focus: item === brand }">{{ item }}</a>
+      </li>
     </ul>
 
     <span>價格</span>
     <ul class="price">
-      <li class="price-item" :class="{ focus: item === price }" v-for="(item, index) in priceArr" :key="item + index" @click="priceSort(item)">{{ item }}</li>
+      <li class="price-item" :class="{ focus: item === price }" v-for="(item, index) in priceArr" :key="item + index" @click="priceSort($event,item)">
+        <a href="#" :class="{ focus: item === price }">{{ item }}</a>
+      </li>
     </ul>
 
-    <div class="reset">
+    <div class="reset" @click="resetHandler()">
       <i class="fa fa-caret-right"></i>
-      <div class="reset-word" @click="resetHandler()">重新篩選</div>
+      <button type="button" class="reset-word">重新篩選</button>
     </div>
     <!-- <ul class="list-group list-group-flush rounded">
       <li class="list-group-item btn btn-outline-secondary rounded p-0">
@@ -44,10 +48,12 @@ export default {
     };
   },
   methods: {
-    filterBrand(brand) {
+    filterBrand(e,brand) {
+      e.preventDefault();
       this.$store.commit('BRAND', brand);
     },
-    priceSort(level) {
+    priceSort(e,level) {
+      e.preventDefault();
       this.$store.commit('PRICE', level);
     },
     resetHandler() {
@@ -81,29 +87,43 @@ export default {
     text-align: center;
     width: 100%;
     cursor: pointer;
+    a{
+      text-decoration: none;
+      color: black;
+    }
   }
 }
 .focus {
   //關注到的顏色
   background-color: $important;
-  color: white;
+  color: white!important;
 }
 .reset {
   display: flex;
   align-items: center;
   transition: 0.5s all;
   color: white;
-  background-color: $important;
+  //background-color: $important;
   width: 100%;
   justify-content: center;
-  padding: 5px 0;
   cursor: pointer;
   &:hover {
     color: $important;
     background-color: white;
   }
+  &:hover > &-word {
+    color: $important;
+    background-color: white;
+  }
   &-word {
+    transition: .5s all;
+    color: white;
+    background-color: $important;
     margin-left: 5px;
+    border: none;
+    &:focus {
+      outline: none;
+    }
   }
 }
 .desk {

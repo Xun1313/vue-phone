@@ -142,7 +142,7 @@ label {
   }
   &-logo {
     display: block;
-    font-family: 'Ma Shan Zheng', cursive;
+    //font-family: 'Ma Shan Zheng', cursive;
     text-decoration: none;
     color: white;
     font-size: 40px;

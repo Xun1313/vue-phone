@@ -33,7 +33,7 @@
       </div>
 
       <div class="style" ref="style">
-        <router-link class="style-logo" to="/">mobile</router-link>
+        <router-link class="style-logo" to="/">SOGI</router-link>
         <div class="style-group">
           <router-link class="style-group-route" to="/new-product">
             <div class="style-group-route-name">最新產品</div>

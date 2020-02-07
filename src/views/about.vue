@@ -17,7 +17,7 @@
         <h5 class="about-group-item-content">Q: 訂購完成後可以變更數量、款式或者是顏色嗎？</h5>
         <p>僅提供會員訂購服務且有數量限制，為了加速您的訂購服務，訂單一旦成立就會進行後續流程，若您需要修改訂單，建議您立即取消該筆訂單，再重新下單即可。</p>
         <h5 class="about-group-item-content">Q: 可以訂制客製化的商品嗎？</h5>
-        <p>mobile會不定時舉辦行銷活動並搭配不同的客製化手機方案，請隨時關注 mobile 網路商店網站，或致電 mobile 網路商店客服中心，我們會竭誠為您服務。</p>
+        <p>SOGI會不定時舉辦行銷活動並搭配不同的客製化手機方案，請隨時關注 SOGI 網路商店網站，或致電 SOGI 網路商店客服中心，我們會竭誠為您服務。</p>
       </article>
       <article class="about-group-item">
         <h4 class="about-group-item-title">人才招募</h4>
@@ -60,7 +60,7 @@
       <h3 class="about-group-title" ref="discount">優惠方案</h3>
       <div class="line"></div>
       <article class="about-group-item">
-        <h4 class="about-group-item-title">mobile通訊 - 購買注意事項</h4>
+        <h4 class="about-group-item-title">SOGI通訊 - 購買注意事項</h4>
         <h5 class="about-group-item-content">1. 本店標多少就賣多少，絕不另外加價，辦門號不需搭配任何加值服務!</h5>
         <h5 class="about-group-item-content">
           2. 因為手機流通速度甚快，現場無現貨需到門市預訂且不接受電話預訂，只要您想預訂手機卻不克前來你可先ATM轉帳訂金，匯完告知末5碼，我們會把您要購買的手機保留並送至門市通知取貨喔!

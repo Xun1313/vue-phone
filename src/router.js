@@ -1,18 +1,18 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue from 'vue'
+import Router from 'vue-router'
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '*',
-      redirect: '/login',
+      redirect: '/login'
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import(/* webpackChunkName: "login" */ './views/pages/login.vue'),
+      component: () => import(/* webpackChunkName: "login" */ './views/pages/login.vue')
     },
     {
       path: '/',
@@ -22,32 +22,37 @@ export default new Router({
         {
           path: '',
           name: 'home',
-          component: () => import(/* webpackChunkName: "home" */ './views/home.vue'),
+          component: () => import(/* webpackChunkName: "home" */ './views/home.vue')
+        },
+        {
+          path: 'about',
+          name: 'about',
+          component: () => import(/* webpackChunkName: "about" */ './views/about.vue')
         },
         {
           path: 'primary-product',
           name: 'primaryProduct',
-          component: () => import(/* webpackChunkName: "primaryProduct" */ './views/primaryProduct.vue'),
+          component: () => import(/* webpackChunkName: "primaryProduct" */ './views/primaryProduct.vue')
         },
         {
           path: 'detail/:orderId',
           name: 'detail',
-          component: () => import(/* webpackChunkName: "detail" */ './views/detail.vue'),
+          component: () => import(/* webpackChunkName: "detail" */ './views/detail.vue')
         },
         {
           path: 'new-product',
           name: 'newProduct',
-          component: () => import(/* webpackChunkName: "newProduct" */ './views/newProduct.vue'),
+          component: () => import(/* webpackChunkName: "newProduct" */ './views/newProduct.vue')
         },
         {
           path: 'cart',
           name: 'cart',
-          component: () => import(/* webpackChunkName: "cart" */ './views/cart.vue'),
+          component: () => import(/* webpackChunkName: "cart" */ './views/cart.vue')
         },
         {
           path: 'place',
           name: 'place',
-          component: () => import(/* webpackChunkName: "place" */ './views/place.vue'),
+          component: () => import(/* webpackChunkName: "place" */ './views/place.vue')
         },
         {
           path: 'check-out',
@@ -57,21 +62,21 @@ export default new Router({
             {
               path: '',
               name: 'checkOrder',
-              component: () => import(/* webpackChunkName: "checkOrder" */ './views/checkOrder.vue'),
+              component: () => import(/* webpackChunkName: "checkOrder" */ './views/checkOrder.vue')
             },
             {
               path: 'check-pay/:orderId',
               name: 'checkPay',
-              component: () => import(/* webpackChunkName: "checkPay" */ './views/checkPay.vue'),
+              component: () => import(/* webpackChunkName: "checkPay" */ './views/checkPay.vue')
             },
             {
               path: 'check-ok',
               name: 'checkOk',
-              component: () => import(/* webpackChunkName: "checkOk" */ './views/checkOk.vue'),
-            },
-          ],
-        },
-      ],
+              component: () => import(/* webpackChunkName: "checkOk" */ './views/checkOk.vue')
+            }
+          ]
+        }
+      ]
     },
 
     {
@@ -83,28 +88,24 @@ export default new Router({
           path: '',
           name: 'backProduct',
           component: () => import(/* webpackChunkName: "backProduct" */ './views/back/backProduct.vue'),
-          meta: { requiresAuth: true },
+          meta: { requiresAuth: true }
         },
         {
           path: 'orders',
           name: 'orders',
           component: () => import(/* webpackChunkName: "orders" */ './views/back/orders.vue'),
-          meta: { requiresAuth: true },
+          meta: { requiresAuth: true }
         },
         {
           path: 'coupon',
           name: 'coupon',
           component: () => import(/* webpackChunkName: "coupon" */ './views/back/coupon.vue'),
-          meta: { requiresAuth: true },
-        },
-      ],
-    },
+          meta: { requiresAuth: true }
+        }
+      ]
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { x: 0, y: 0 }
-    }
-  },
+    return to.name !== 'primaryProduct' && to.name !== 'about' ? { x: 0, y: 0 } : ''
+  }
 })

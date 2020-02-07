@@ -1,20 +1,20 @@
 <template>
-  <div class="cellphone">
+  <section class="cellphone">
     <div class="cellphone-flex">
       <div class="cellphone-flex-item">
-        <span>品牌</span>
+        <h4>品牌</h4>
         <ul class="brand">
           <li class="brand-item" :class="{ focus: item === brand }" v-for="(item, i) in categories" :key="item + i" @click="filterBrand($event, item)">
-            <a href="#" :class="{ focus: item === brand }">{{ item }}</a>
+            {{ item }}
           </li>
         </ul>
       </div>
 
       <div class="cellphone-flex-item">
-        <span>價格</span>
+        <h4>價格</h4>
         <ul class="price">
           <li class="price-item" :class="{ focus: item === price }" v-for="(item, index) in priceArr" :key="item + index" @click="priceSort($event, item)">
-            <a href="#" :class="{ focus: item === price }">{{ item }}</a>
+            {{ item }}
           </li>
         </ul>
       </div>
@@ -22,127 +22,45 @@
 
     <div class="reset">
       <i class="fa fa-caret-right"></i>
-      <button type="button" class="reset-word" @click="resetHandler()">重新篩選</button>
+      <button type="button" class="reset-word" @click="resetHandler()">
+        重新篩選
+      </button>
     </div>
-    <!-- <a
-      data-toggle="modal"
-      data-target="#brandModal"
-      class="btn btn-outline-secondary rounded cellphone-btn mx-1"
-    >{{brand}}</a>
-
-    <div
-      class="modal fade"
-      id="brandModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLongTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div
-              class="form-check border-bottom btn-outline-secondary"
-              v-for="(item, index) in categories"
-              :key="item"
-            >
-              <input
-                class="form-check-input"
-                type="radio"
-                :name="'brandRadios'+index+1"
-                :id="'brandRadios'+index+1"
-                :value="item"
-                v-model="brand"
-                @click="filterBrand(item)"
-              >
-              <label
-                class="form-check-label w-100"
-                :for="'brandRadios'+index+1"
-                @click="filterBrand(item)"
-              >{{item}}</label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <a
-      data-toggle="modal"
-      data-target="#priceModal"
-      class="btn btn-outline-secondary rounded cellphone-btn mx-1"
-    >{{price}}</a>
-
-    <div
-      class="modal fade"
-      id="priceModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLongTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div
-              class="form-check border-bottom btn-outline-secondary"
-              v-for="(item, index) in priceArr"
-              :key="item"
-            >
-              <input
-                class="form-check-input"
-                type="radio"
-                :name="'priceRadios'+index+1"
-                :id="'priceRadios'+index+1"
-                :value="item"
-                v-model="price"
-                @click.prevent="priceSort(item)"
-              >
-              <label
-                class="form-check-label w-100"
-                :for="'priceRadios'+index+1"
-                @click.prevent="priceSort(item)"
-              >{{item}}</label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </div>
+  </section>
 </template>
 
 <script>
 //import $ from "jquery";
-import { mapGetters } from 'vuex';
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      priceArr: ['由高~低', '由低~高'],
-    };
+      priceArr: ['由高~低', '由低~高']
+    }
   },
   methods: {
     filterBrand(e, brand) {
-      e.preventDefault();
-      this.$store.commit('BRAND', brand);
+      e.preventDefault()
+      this.$store.commit('BRAND', brand)
       //$("#brandModal").modal("hide");
     },
     priceSort(e, level) {
-      e.preventDefault();
-      this.$store.commit('PRICE', level);
+      e.preventDefault()
+      this.$store.commit('PRICE', level)
       //$("#priceModal").modal("hide");
     },
     resetHandler() {
-      this.$store.commit('BRAND', '全部');
-      this.$store.commit('PRICE', '');
-    },
+      this.$store.commit('BRAND', '全部')
+      this.$store.commit('PRICE', '')
+    }
   },
   computed: {
-    ...mapGetters(['brand', 'categories', 'price']),
-  },
-};
+    ...mapGetters(['brand', 'categories', 'price'])
+  }
+}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/_grid.scss';
 @import '../assets/_variable.scss';
 .brand,
@@ -160,12 +78,16 @@ export default {
     text-align: center;
     width: 100%;
     cursor: pointer;
+    transition: 0.5s all;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
   }
 }
 .focus {
   //關注到的顏色
-  background-color: $important;
-  color: white;
+  background-color: $important !important;
+  color: white !important;
 }
 .reset {
   display: flex;
@@ -179,12 +101,10 @@ export default {
   cursor: pointer;
   margin: auto;
   &:hover {
-    color: $important;
-    background-color: white;
+    background-color: darken($important, 10%);
   }
   &:hover > &-word {
-    color: $important;
-    background-color: white;
+    background-color: darken($important, 10%);
   }
   &-word {
     transition: 0.5s all;
@@ -192,18 +112,10 @@ export default {
     background-color: $important;
     margin-left: 5px;
     border: none;
-    &:focus {
-      outline: none;
-    }
+    outline: none;
   }
 }
-.modal-backdrop {
-  z-index: -1;
-}
 .cellphone {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   @include padTOdeskTop {
     display: none;
   }
@@ -217,8 +129,7 @@ export default {
     }
   }
 }
-.cellphone-btn,
-label {
-  cursor: pointer;
+h4 {
+  font-size: 20px;
 }
 </style>

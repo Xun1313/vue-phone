@@ -1,10 +1,10 @@
 /* const path = require('path') */
 module.exports = {
-  publicPath: '/vue-phone/dist/',
+  publicPath: '/SOGI/dist/',
   outputDir: undefined,
   assetsDir: undefined,
   runtimeCompiler: undefined,
   productionSourceMap: undefined,
   parallel: undefined,
-  css: undefined,
+  css: undefined
 }

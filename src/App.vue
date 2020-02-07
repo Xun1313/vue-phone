@@ -1,41 +1,44 @@
 <template>
   <div id="app">
-    <!-- <loading :active.sync="isLoading"></loading> -->
     <router-view />
     <i class="fas fa-arrow-circle-up fa-2x arrow" @click="top"></i>
   </div>
 </template>
 
 <script>
-import $ from "jquery";
+import $ from 'jquery'
 $(document).scroll(function() {
   if ($(this).scrollTop()) {
-    $(".arrow").fadeIn();
+    $('.arrow').fadeIn()
   } else {
-    $(".arrow").fadeOut();
+    $('.arrow').fadeOut()
   }
-});
+})
 
 export default {
   methods: {
     top() {
-      $("html,body").animate({ scrollTop: 0 }, 1000);
+      $('html,body').animate({ scrollTop: 0 }, 1000)
     }
-  },
-  /* computed: {
-    isLoading() {
-      return this.$store.state.isLoading;
-    }
-  }, */
-};
+  }
+}
 </script>
 
 <style lang="scss">
-@import "./src/assets/all";
+@import './src/assets/all';
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
 @import './assets/_variable.scss';
-html, body {
+@import './assets/_grid.scss';
+
+html,
+body {
   font-family: 'Noto Sans TC', sans-serif;
+}
+body {
+  padding-top: 60px !important;
+  @include padTOdeskTop {
+    padding-top: 114px !important;
+  }
 }
 
 #app {
@@ -47,6 +50,6 @@ html, body {
   position: fixed;
   bottom: 5px;
   right: 5px;
-  color: $important
+  color: $important;
 }
 </style>

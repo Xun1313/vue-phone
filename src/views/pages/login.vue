@@ -21,47 +21,47 @@
       v-model="user.password"
     />
     <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me" /> Remember me
-      </label>
+      <label> <input type="checkbox" value="remember-me" /> Remember me </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Sign in
+    </button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
   </form>
 </template>
 
 <script>
 export default {
-  name: "login",
+  name: 'login',
   props: {
     msg: String
   },
   data() {
     return {
       user: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       },
-      process: ""
-    };
+      process: ''
+    }
   },
   methods: {
     signIn() {
       this.$http
         .post(`${process.env.VUE_APP_API}/admin/signin`, this.user)
         .then(res => {
-          console.log(res);
+          console.log(res)
           if (res.data.success) {
-            this.$router.push("/admin");
+            this.$router.push('/admin')
           }
-        });
+        })
     }
   },
   created() {
-    this.process = `${process.env.VUE_APP_API}`;
-    console.log(this.process);
+    this.process = `${process.env.VUE_APP_API}`
+    console.log(this.process)
   }
-};
+}
 </script>
 
 <style scoped>
@@ -99,12 +99,12 @@ body {
 .form-signin .form-control:focus {
   z-index: 2;
 }
-.form-signin input[type="email"] {
+.form-signin input[type='email'] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.form-signin input[type="password"] {
+.form-signin input[type='password'] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

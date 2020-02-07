@@ -1,7 +1,7 @@
 <template>
   <div class="container all">
-    <div class="goods">
-      <div class="goods-title">商品資訊</div>
+    <section class="goods">
+      <h2 class="goods-title">商品資訊</h2>
       <table class="table goods-table">
         <thead>
           <th>品名</th>
@@ -17,15 +17,14 @@
         </tbody>
         <tfoot>
           <tr>
-            <!-- <td colspan="2"></td> -->
             <td colspan="3" class="goods-table-sum">總計{{ order.total | currency }}</td>
           </tr>
         </tfoot>
       </table>
-    </div>
+    </section>
 
-    <div class="info">
-      <div class="info-title">聯絡人資訊</div>
+    <section class="info">
+      <h2 class="info-title">聯絡人資訊</h2>
       <table class="table info-table">
         <tbody>
           <tr>
@@ -47,62 +46,62 @@
           <tr>
             <th>付款狀態</th>
             <td>
-              <span v-if="!order.is_paid" class="not">尚未付款</span>
-              <span v-else class="pay">付款完成</span>
+              <h5 v-if="!order.is_paid" class="not">尚未付款</h5>
+              <h5 v-else class="pay">付款完成</h5>
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
 
-    <div class="route" v-if="order.is_paid === false">
+    <section class="route" v-if="order.is_paid === false">
       <router-link class="route-home" to="/">繼續購物</router-link>
-      <div class="route-pay" @click="payOrder">確認付款</div>
-    </div>
+      <button type="button" class="route-pay" @click="payOrder">確認付款</button>
+    </section>
   </div>
 </template>
 
 <script>
-import progresses from '../components/progresses';
+/* import progresses from '../components/progresses' */
 export default {
   data() {
     return {
       isLoading: false,
       orderId: '',
       order: {
-        user: {},
-      },
-    };
+        user: {}
+      }
+    }
   },
   methods: {
     getOrder() {
-      this.$store.dispatch('updateLoading', true);
+      this.$store.dispatch('updateLoading', true)
       this.$http.get(`${process.env.VUE_APP_API}/api/adam/order/${this.orderId}`).then(res => {
-        console.log(res);
-        this.order = res.data.order;
-        this.$store.dispatch('updateLoading', false);
-      });
+        console.log(res)
+        this.order = res.data.order
+        this.$store.dispatch('updateLoading', false)
+      })
     },
     payOrder() {
       this.$http.post(`${process.env.VUE_APP_API}/api/adam/pay/${this.orderId}`).then(res => {
-        console.log(res);
+        console.log(res)
         if (res.data.success) {
-          this.getOrder();
-          this.$router.push('/check-out/check-ok');
+          this.getOrder()
+          this.$router.push('/check-out/check-ok')
         }
-      });
-    },
+      })
+    }
   },
   created() {
-    this.orderId = this.$route.params.orderId;
-    this.getOrder();
-    this.$bus.$emit('progress', 2);
-    this.$bus.$emit('show');
-  },
-  components: {
-    progresses,
-  },
-};
+    this.orderId = this.$route.params.orderId
+    this.getOrder()
+    this.$bus.$emit('progress', 2)
+    this.$bus.$emit('show')
+  }
+  /* components: {
+    progresses
+  } */
+}
 </script>
 
 <style lang="scss" scoped>
@@ -152,16 +151,25 @@ export default {
   > * {
     color: white;
     background-color: $important;
-    cursor: pointer;
-    padding: 10px 20px;
+    padding: 10px;
     transition: 0.5s all;
+    text-decoration: none;
+    outline: none;
+    display: block;
+    width: 150px;
+    text-align: center;
     &:hover {
-      color: $important;
-      background-color: white;
+      background-color: darken($important, 10%);
     }
   }
   &-home {
     margin-right: 10px;
   }
+}
+h2 {
+  font-size: 18px;
+}
+h5{
+  font-size: 16px;
 }
 </style>

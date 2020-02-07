@@ -10,7 +10,7 @@
       type="text"
       placeholder="Search"
       aria-label="Search"
-    >
+    />
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
         <a class="nav-link" href="#" @click="signout">Sign out</a>
@@ -23,14 +23,14 @@
 export default {
   methods: {
     signout() {
-      const url = `${process.env.VUE_APP_API}/logout`;
+      const url = `${process.env.VUE_APP_API}/logout`
       this.$http.post(url).then(res => {
-        console.log(res.data);
+        console.log(res.data)
         if (res.data.success) {
-          this.$router.push("/login");
+          this.$router.push('/login')
         }
-      });
+      })
     }
   }
-};
+}
 </script>

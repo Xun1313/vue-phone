@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   //變成全部都是區域變數
@@ -6,27 +6,27 @@ export default {
   namespaced: true,
   actions: {
     getCart(context, payload) {
-      context.commit('LOADING', true, { root: true });
+      //context.commit('LOADING', true, { root: true })
       axios.get(`${process.env.VUE_APP_API}/api/adam/cart`).then(res => {
-        context.commit('GETCART', res.data.data.carts);
-        context.commit('LOADING', false, { root: true });
-      });
-    },
+        context.commit('GETCART', res.data.data.carts)
+        //context.commit('LOADING', false, { root: true })
+      })
+    }
   },
   mutations: {
     GETCART(state, payload) {
-      state.cart = payload.length;
-    },
+      state.cart = payload.length
+    }
   },
   //儲存資料
   state: {
     test: 1,
-    cart: '',
+    cart: ''
   },
   //類似computed
   getters: {
     cart(state) {
-      return state.cart;
-    },
-  },
-};
+      return state.cart
+    }
+  }
+}

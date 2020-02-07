@@ -1,69 +1,58 @@
 <template>
-  <div class="all">
-    <div class="cart container" v-if="cart.carts ? cart.carts.length !== 0 : false">
-      <div class="cart-title" v-if="cart.carts">共{{ cart.carts.length }}項商品</div>
-      <div class="cart-item" v-for="item in cart.carts" :key="item.id">
-        <div class="cart-item-flex">
-          <img :src="item.product.imageUrl" alt="" class="cart-item-flex-pic" />
-          <div class="cart-item-flex-title">
-            <div class="primary">{{ item.product.title }}</div>
-            <div class="secondary">品牌:{{ item.product.category }}</div>
-            <div class="qty">數量:{{item.qty}}{{item.product.unit}}</div>
-          </div>
-          <div class="cart-item-flex-cancel" @click="removeCartItem(item.id)">
-            <i class="fas fa-times "></i>
-          </div>
+  <section class="cart container" v-if="cart.carts ? cart.carts.length !== 0 : false">
+    <h2 class="cart-title" v-if="cart.carts">共{{ cart.carts.length }}項商品</h2>
+    <div class="cart-item" v-for="item in cart.carts" :key="item.id">
+      <div class="cart-item-flex">
+        <img :src="item.product.imageUrl" alt="" class="cart-item-flex-pic" />
+        <div class="cart-item-flex-title">
+          <h4 class="primary">{{ item.product.title }}</h4>
+          <h4 class="secondary">品牌:{{ item.product.category }}</h4>
+          <h4 class="qty">數量:{{ item.qty }}{{ item.product.unit }}</h4>
         </div>
-        <div class="cart-item-flex">
-          <!-- <div class="cart-item-flex-calc">
-            <div class="mark mark1" @click="changeCart(item.id, false, item.qty)">
-              <i class="fas fa-minus"></i>
-            </div>
-            <input type="text" class="mark-num" v-model="item.qty" readonly />
-            <div class="mark mark2" @click="changeCart(item.id, true, item.qty)">
-              <i class="fas fa-plus"></i>
-            </div>
-          </div> -->
-          <div class="cart-item-flex-price" v-if="item.final_total === item.total">NT{{ item.final_total | currency }}</div>
-          <div class="cart-item-flex-price" v-else>
-            <div class="discount">折扣後</div>
-            <div class="final">NT{{ item.final_total | currency }}</div>
-            <div class="save">省NT{{ (item.total - item.final_total) | currency }}</div>
-          </div>
-        </div>
+        <button type="button" class="cart-item-flex-cancel" @click="removeCartItem(item.id)">
+          <i class="fas fa-times "></i>
+        </button>
       </div>
+      <article class="cart-item-flex">
+        <h4 class="cart-item-flex-price" v-if="item.final_total === item.total">NT{{ item.final_total | currency }}</h4>
+        <div class="cart-item-flex-price" v-else>
+          <h5 class="discount">折扣後</h5>
+          <h5 class="final">NT{{ item.final_total | currency }}</h5>
+          <h5 class="save">省NT{{ (item.total - item.final_total) | currency }}</h5>
+        </div>
+      </article>
+    </div>
 
-      <div class="cart-block">
-        <div class="cart-block-sum">
-          <div class="cart-block-sum-name">商品金額小計</div>
-          <div class="cart-block-sum-price">NT{{ cart.total | currency }}</div>
-        </div>
-        <div class="cart-block-sum line">
-          <div class="cart-block-sum-name">活動折扣</div>
-          <div class="cart-block-sum-price">-NT{{ (cart.total - cart.final_total) | currency }}</div>
-        </div>
-        <div class="cart-block-sum">
-          <div class="cart-block-sum-name" v-if="cart.carts">共{{ cart.carts.length }}項商品</div>
-          <div class="cart-block-sum-price final">NT{{ cart.final_total | currency }}</div>
-        </div>
-        <div class="cart-block-coupon">
-          <div class="cart-block-coupon-title">優惠券</div>
-          <div class="cart-block-coupon-flex">
-            <input type="text" class="num" placeholder="請輸入123456" v-model="coupon_code" />
-            <div class="use" @click="addCouponCode">使用</div>
-          </div>
-        </div>
-        <div class="cart-block-sum" v-if="couponSwitch">
-          <div class="cart-block-sum-coupon">(已套用優惠券)</div>
-        </div>
-        <router-link to="/check-out" class="cart-block-next">下一步</router-link>
+    <article class="cart-block">
+      <div class="cart-block-sum">
+        <h4 class="cart-block-sum-name">商品金額小計</h4>
+        <h4 class="cart-block-sum-price">NT{{ cart.total | currency }}</h4>
       </div>
-    </div>
-    <div class="empty container" v-else>
-      <div class="empty-word">你的購物車還未有商品</div>
-      <router-link to="/" class="empty-home">繼續購物</router-link>
-    </div>
-  </div>
+      <div class="cart-block-sum line">
+        <h4 class="cart-block-sum-name">活動折扣</h4>
+        <h4 class="cart-block-sum-price">-NT{{ (cart.total - cart.final_total) | currency }}</h4>
+      </div>
+      <div class="cart-block-sum">
+        <h4 class="cart-block-sum-name" v-if="cart.carts">共{{ cart.carts.length }}項商品</h4>
+        <h4 class="cart-block-sum-price final">NT{{ cart.final_total | currency }}</h4>
+      </div>
+      <div class="cart-block-coupon">
+        <label for="num" class="cart-block-coupon-title">優惠券</label>
+        <div class="cart-block-coupon-flex">
+          <input type="text" class="num" id="num" placeholder="請輸入123456" v-model="coupon_code" />
+          <button type="button" class="use" @click="addCouponCode">使用</button>
+        </div>
+      </div>
+      <div class="cart-block-sum" v-if="couponSwitch">
+        <h4 class="cart-block-sum-coupon">(已套用優惠券)</h4>
+      </div>
+      <router-link to="/check-out" class="cart-block-next">下一步</router-link>
+    </article>
+  </section>
+  <section class="empty container" v-else>
+    <h2 class="empty-word">你的購物車還未有商品</h2>
+    <router-link to="/" class="empty-home">繼續購物</router-link>
+  </section>
 </template>
 
 <script>
@@ -72,100 +61,90 @@ export default {
     return {
       cart: {},
       coupon_code: '',
-      couponSwitch: false,
-    };
+      couponSwitch: false
+    }
   },
   methods: {
     getCart() {
-      this.$store.dispatch('updateLoading', true);
+      this.$store.dispatch('updateLoading', true)
       this.$http.get(`${process.env.VUE_APP_API}/api/adam/cart`).then(res => {
-        console.log(res.data);
-        this.cart = res.data.data;
-        this.$store.dispatch('updateLoading', false);
-      });
+        console.log(res.data)
+        this.cart = res.data.data
+        this.$store.dispatch('updateLoading', false)
+      })
     },
     removeCartItem(id) {
-      this.$store.dispatch('updateLoading', true);
+      this.$store.dispatch('updateLoading', true)
       this.$http.delete(`${process.env.VUE_APP_API}/api/adam/cart/${id}`).then(res => {
-        console.log(res);
-        this.getCart();
-        this.$bus.$emit('show');
-        this.$store.dispatch('updateLoading', false);
-      });
+        console.log(res)
+        this.getCart()
+        this.$bus.$emit('show')
+        this.$store.dispatch('updateLoading', false)
+      })
     },
     addCouponCode() {
-      this.$store.dispatch('updateLoading', true);
-      const api = `${process.env.VUE_APP_API}/api/adam/coupon`;
+      this.$store.dispatch('updateLoading', true)
+      const api = `${process.env.VUE_APP_API}/api/adam/coupon`
       const coupon = {
-        code: this.coupon_code,
-      };
+        code: this.coupon_code
+      }
       this.$http.post(api, { data: coupon }).then(res => {
-        console.log(res);
+        console.log(res)
         if (res.data.success) {
-          this.getCart();
-          this.couponSwitch = true;
+          this.getCart()
+          this.couponSwitch = true
         } else {
-          alert('優惠碼有誤');
+          alert('優惠碼有誤')
         }
-        this.$store.dispatch('updateLoading', false);
-      });
+        this.$store.dispatch('updateLoading', false)
+      })
     },
     addtoCart(id, qty = 1) {
-      this.$store.dispatch('updateLoading', true);
-      const api = `${process.env.VUE_APP_API}/api/adam/cart`;
+      this.$store.dispatch('updateLoading', true)
+      const api = `${process.env.VUE_APP_API}/api/adam/cart`
       const cart = {
         product_id: id,
-        qty,
-      };
+        qty
+      }
       this.$http.post(api, { data: cart }).then(res => {
-        console.log(res);
+        console.log(res)
         if (res.data.success) {
-          this.$bus.$emit('show');
+          this.$bus.$emit('show')
         }
-      });
-      this.$store.dispatch('updateLoading', false);
-    },
-    changeCart(id, mark, qty) {
-      console.log(id);
-      //mark ? this.addtoCart(id, qty + 1) : this.addtoCart(id, qty - 1);
-      this.cart.carts.forEach(e => {
-        if (e.id === id) {
-          mark ? e.qty++ : e.qty--;
-          this.addtoCart(id, qty);
-        }
-      });
+      })
+      this.$store.dispatch('updateLoading', false)
     },
     createOrder() {
-      const api = `${process.env.VUE_APP_API}/api/adam/order`;
+      const api = `${process.env.VUE_APP_API}/api/adam/order`
       this.$validator.validate().then(valid => {
         if (valid) {
           this.$http.post(api, { data: this.form }).then(res => {
             if (res.data.success) {
-              console.log('訂單已建立', res);
-              this.$router.push(`/customer-checkout/${res.data.orderId}`);
+              console.log('訂單已建立', res)
+              this.$router.push(`/customer-checkout/${res.data.orderId}`)
             }
-          });
+          })
         } else {
-          console.log('欄位不完整');
+          console.log('欄位不完整')
         }
-      });
-    },
+      })
+    }
   },
   mounted() {
     //this.addtoCart('-LwRy4YowuSsDsS8fmtZ',3);
-    this.getCart();
-  },
-};
+    this.getCart()
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/_variable.scss';
 @import '../assets/_grid.scss';
-.all {
-  margin-top: 140px;
-}
 .cart {
+  margin-top: 50px;
+  min-height: 100vh;
   &-title {
+    font-size: 20px;
   }
   &-item {
     outline: 1px solid rgba(128, 128, 128, 0.3);
@@ -197,26 +176,25 @@ export default {
           //opacity: 0.6;
           font-size: 16px;
         }
-        .qty{
+        .qty {
           //opacity: .6;
           font-size: 16px;
-
         }
       }
       &-cancel {
         margin-left: auto;
-        cursor: pointer;
         border-radius: 50%;
         width: 25px;
         height: 25px;
         justify-content: center;
         align-items: center;
         display: flex;
-        color: $important;
+        color: white;
+        background-color: $important;
+        outline: none;
         transition: 0.5s all;
         &:hover {
-          background-color: $important;
-          color: white;
+          background-color: darken($important, 10%);
         }
       }
       //以上是上半部的flex
@@ -317,6 +295,9 @@ export default {
     }
     &-coupon {
       margin-bottom: 20px;
+      &-title {
+        margin: 0;
+      }
       &-flex {
         @include padTOdeskTop {
           display: flex;
@@ -335,15 +316,17 @@ export default {
         .use {
           color: $important;
           background-color: white;
-          cursor: pointer;
+          padding: 10px;
+          width: 150px;
+          display: block;
+          outline: none;
           transition: 0.5s all;
           margin-left: auto;
-          width: 100px;
-          text-align: center;
-          padding: 5px 0;
+          @include padTOdeskTop {
+            margin-left: 0;
+          }
           &:hover {
-            background-color: black;
-            color: white;
+            background-color: darken(white, 10%);
           }
         }
       }
@@ -359,9 +342,10 @@ export default {
       margin: 15px 0 0 auto;
       display: block;
       transition: 0.5s all;
+      text-decoration: none;
+      margin-top: 50px;
       &:hover {
-        background-color: black;
-        color: white;
+        background-color: darken(white, 10%);
       }
     }
   }
@@ -376,18 +360,25 @@ export default {
     font-size: 30px;
   }
   &-home {
-    width: 200px;
+    width: 150px;
     margin: auto;
-    cursor: pointer;
     color: white;
-    padding: 15px 20px;
+    padding: 10px;
     font-size: 20px;
+    text-decoration: none;
     background-color: $important;
     transition: 0.5s all;
+    display: block;
+    text-align: center;
     &:hover {
-      background-color: white;
-      color: $important;
+      background-color: darken($important, 10%);
     }
   }
+}
+h4 {
+  font-size: 20px;
+}
+h5 {
+  font-size: 18px;
 }
 </style>

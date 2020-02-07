@@ -1,16 +1,16 @@
 <template>
-  <div class="flex-column align-items-center desk">
-    <span>品牌</span>
+  <section class="flex-column align-items-center desk">
+    <h4>品牌</h4>
     <ul class="brand">
-      <li class="brand-item" :class="{ focus: item === brand }" v-for="(item, i) in categories" :key="item + i" @click="filterBrand($event,item)">
-        <a href="#" :class="{ focus: item === brand }">{{ item }}</a>
+      <li class="brand-item" :class="{ focus: item === brand }" v-for="(item, i) in categories" :key="item + i" @click="filterBrand($event, item)">
+        {{ item }}
       </li>
     </ul>
 
-    <span>價格</span>
+    <h4>價格</h4>
     <ul class="price">
-      <li class="price-item" :class="{ focus: item === price }" v-for="(item, index) in priceArr" :key="item + index" @click="priceSort($event,item)">
-        <a href="#" :class="{ focus: item === price }">{{ item }}</a>
+      <li class="price-item" :class="{ focus: item === price }" v-for="(item, index) in priceArr" :key="item + index" @click="priceSort($event, item)">
+        {{ item }}
       </li>
     </ul>
 
@@ -18,59 +18,40 @@
       <i class="fa fa-caret-right"></i>
       <button type="button" class="reset-word">重新篩選</button>
     </div>
-    <!-- <ul class="list-group list-group-flush rounded">
-      <li class="list-group-item btn btn-outline-secondary rounded p-0">
-        <div class="btn-group dropright">
-          <a class="dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ brand }}</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item btn btn-outline-secondary" href="#" v-for="(item, i) in categories" :key="i" @click.prevent="filterBrand(item)">{{ item }}</a>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item btn btn-outline-secondary rounded p-0">
-        <div class="btn-group dropright">
-          <a class="dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ price }}</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item btn btn-outline-secondary" href="#" v-for="(item, index) in priceArr" :key="item + index" @click.prevent="priceSort(item)">{{ item }}</a>
-          </div>
-        </div>
-      </li>
-    </ul> -->
-  </div>
-  <!-- style="height:0" -->
+  </section>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      priceArr: ['由高~低', '由低~高'],
-    };
+      priceArr: ['由高~低', '由低~高']
+    }
   },
   methods: {
-    filterBrand(e,brand) {
-      e.preventDefault();
-      this.$store.commit('BRAND', brand);
+    filterBrand(e, brand) {
+      e.preventDefault()
+      this.$store.commit('BRAND', brand)
     },
-    priceSort(e,level) {
-      e.preventDefault();
-      this.$store.commit('PRICE', level);
+    priceSort(e, level) {
+      e.preventDefault()
+      this.$store.commit('PRICE', level)
     },
     resetHandler() {
-      this.$store.commit('BRAND', '全部');
-      this.$store.commit('PRICE', '');
-    },
+      this.$store.commit('BRAND', '全部')
+      this.$store.commit('PRICE', '')
+    }
   },
   computed: {
     ...mapGetters(['brand', 'categories']),
     price() {
-      return this.$store.getters.price;
-    },
-  },
-};
+      return this.$store.getters.price
+    }
+  }
+}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/_grid.scss';
 @import '../assets/_variable.scss';
 .brand,
@@ -87,43 +68,41 @@ export default {
     text-align: center;
     width: 100%;
     cursor: pointer;
-    a{
-      text-decoration: none;
-      color: black;
+    transition: 0.5s all;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
     }
   }
 }
 .focus {
   //關注到的顏色
-  background-color: $important;
-  color: white!important;
+  background-color: $important !important;
+  color: white !important;
 }
 .reset {
   display: flex;
   align-items: center;
   transition: 0.5s all;
   color: white;
-  //background-color: $important;
-  width: 100%;
+  background-color: $important;
+  width: 180px;
   justify-content: center;
+  padding: 5px 0;
   cursor: pointer;
+  margin: auto;
   &:hover {
-    color: $important;
-    background-color: white;
+    background-color: darken($important, 10%);
   }
   &:hover > &-word {
-    color: $important;
-    background-color: white;
+    background-color: darken($important, 10%);
   }
   &-word {
-    transition: .5s all;
+    transition: 0.5s all;
     color: white;
     background-color: $important;
     margin-left: 5px;
     border: none;
-    &:focus {
-      outline: none;
-    }
+    outline: none;
   }
 }
 .desk {
@@ -135,5 +114,8 @@ export default {
 }
 .list-group-item {
   cursor: pointer;
+}
+h4 {
+  font-size: 20px;
 }
 </style>

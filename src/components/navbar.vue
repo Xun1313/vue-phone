@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading :active.sync="isLoading"></loading>
+    <loading :active.sync="isLoading" :opacity="1" :loader="'bars'"></loading>
     <nav class="phone important">
       <div class="d-md-none">
         <input type="checkbox" id="bar" />
@@ -32,7 +32,7 @@
         <label for="bar" class="fullScreen"></label>
       </div>
 
-      <div class="style">
+      <div class="style" ref="style">
         <router-link class="style-logo" to="/">mobile</router-link>
         <div class="style-group">
           <router-link class="style-group-route" to="/new-product">
@@ -228,59 +228,63 @@ label {
 </style>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
+import { mapGetters, mapActions } from 'vuex'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 export default {
   data() {
     return {
-      time: '',
-    };
+      time: ''
+    }
   },
   methods: {
     //...mapActions('cartModule',['getCart']),
     getCart() {
-      this.$store.dispatch('cartModule/getCart');
+      this.$store.dispatch('cartModule/getCart')
     },
     newProduct() {
-      this.$router.push('/new-product');
+      this.$router.push('/new-product')
     },
     allProduct() {
-      this.$router.push('/primary-product');
+      this.$router.push('/primary-product')
     },
     servePlace() {
-      this.$router.push('/place');
+      this.$router.push('/place')
     },
     cartHandler() {
-      clearTimeout(this.time);
-      this.$refs.dark.classList.add('on');
-      this.$refs['dark-bg'].classList.remove('none');
+      clearTimeout(this.time)
+      this.$refs.dark.classList.add('on')
+      this.$refs['dark-bg'].classList.remove('none')
       this.time = setTimeout(() => {
-        this.$refs.dark.classList.remove('on');
-        this.$refs['dark-bg'].classList.add('none');
-      }, 2000);
-    },
+        this.$refs.dark.classList.remove('on')
+        this.$refs['dark-bg'].classList.add('none')
+      }, 2000)
+    }
   },
   computed: {
     ...mapGetters('cartModule', ['cart']),
     isLoading() {
-      return this.$store.getters.isLoading;
-    },
+      return this.$store.getters.isLoading
+    }
     /* cart(){
       return this.$store.getters.cartModule.cart;
     } */
   },
-  created() {
-    this.getCart();
+  mounted() {
+    this.$store.commit('NAVHEIGHT', this.$refs.style.offsetHeight)
+    window.addEventListener('resize', () => {
+      this.$store.commit('NAVHEIGHT', this.$refs.style.offsetHeight)
+    })
+    this.getCart()
     this.$bus.$on('show', () => {
-      this.getCart();
-    });
+      this.getCart()
+    })
     this.$bus.$on('dark', () => {
-      this.cartHandler();
-    });
+      this.cartHandler()
+    })
   },
   components: {
-    Loading,
-  },
-};
+    Loading
+  }
+}
 </script>

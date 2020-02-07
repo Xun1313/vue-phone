@@ -1,8 +1,13 @@
 <template>
   <nav aria-label="Page navigation example">
     <ul class="pagination">
-      <li class="page-item" :class="{'disabled':!paginations.has_pre}">
-        <a class="page-link" href="#" aria-label="Previous" @click.prevent="whichPage(paginations.current_page-1)">
+      <li class="page-item" :class="{ disabled: !paginations.has_pre }">
+        <a
+          class="page-link"
+          href="#"
+          aria-label="Previous"
+          @click.prevent="whichPage(paginations.current_page - 1)"
+        >
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
@@ -10,12 +15,19 @@
         class="page-item"
         v-for="page in paginations.total_pages"
         :key="page"
-        :class="{'active':paginations.current_page===page}"
+        :class="{ active: paginations.current_page === page }"
       >
-        <a class="page-link" href="#" @click.prevent="whichPage(page)">{{page}}</a>
+        <a class="page-link" href="#" @click.prevent="whichPage(page)">{{
+          page
+        }}</a>
       </li>
-      <li class="page-item" :class="{'disabled':!paginations.has_next}">
-        <a class="page-link" href="#" aria-label="Next" @click.prevent="whichPage(paginations.current_page+1)">
+      <li class="page-item" :class="{ disabled: !paginations.has_next }">
+        <a
+          class="page-link"
+          href="#"
+          aria-label="Next"
+          @click.prevent="whichPage(paginations.current_page + 1)"
+        >
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
@@ -25,11 +37,11 @@
 
 <script>
 export default {
-  props:['paginations'],
+  props: ['paginations'],
   methods: {
-    whichPage(page){
+    whichPage(page) {
       this.$emit('getProducts', page)
     }
-  },
+  }
 }
 </script>

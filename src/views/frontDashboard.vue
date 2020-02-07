@@ -4,17 +4,16 @@
     <Alert></Alert>
     <router-view></router-view>
     <footers></footers>
-    
   </div>
 </template>
 
 <script>
-import navbar from "../components/navbar";
-import Alert from "../components/AlertMessage";
-import footers from '../components/footer';
+import navbar from '../components/navbar'
+import Alert from '../components/AlertMessage'
+import footers from '../components/footer'
 
 export default {
-  components:{
+  components: {
     navbar,
     Alert,
     footers

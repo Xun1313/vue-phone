@@ -13,13 +13,13 @@
       </thead>
       <tbody>
         <tr v-for="item in orders" :key="item.id">
-          <td>{{item.create_at|moment("YYYY-MM-DD")}}</td>
-          <td>{{item.user.email}}</td>
+          <td>{{ item.create_at | moment('YYYY-MM-DD') }}</td>
+          <td>{{ item.user.email }}</td>
           <td></td>
-          <td>{{item.total|currency}}</td>
-          <td class="text-success" v-if="item.is_paid">{{'已付款'}}</td>
-          <td class="text-danger" v-else>{{'尚未付款'}}</td>
-          <td>{{item.paid_date|moment("YYYY-MM-DD")}}</td>
+          <td>{{ item.total | currency }}</td>
+          <td class="text-success" v-if="item.is_paid">{{ '已付款' }}</td>
+          <td class="text-danger" v-else>{{ '尚未付款' }}</td>
+          <td>{{ item.paid_date | moment('YYYY-MM-DD') }}</td>
         </tr>
       </tbody>
     </table>
@@ -28,25 +28,25 @@
 </template>
 
 <script>
-import pagination from "../../components/pagination";
+import pagination from '../../components/pagination'
 export default {
   data() {
     return {
       orders: [],
       pagination: {}
-    };
+    }
   },
   methods: {
     getOrder(page = 1) {
-      this.$store.dispatch('updateLoading',true)
+      this.$store.dispatch('updateLoading', true)
       this.$http
         .get(`${process.env.VUE_APP_API}/api/adam/admin/orders?page=${page}`)
         .then(res => {
-          console.log(res);
-          this.orders = res.data.orders;
-          this.pagination = res.data.pagination;
-        });
-        this.$store.dispatch('updateLoading',false)
+          console.log(res)
+          this.orders = res.data.orders
+          this.pagination = res.data.pagination
+        })
+      this.$store.dispatch('updateLoading', false)
     }
   },
   computed: {
@@ -60,10 +60,10 @@ export default {
     } */
   },
   created() {
-    this.getOrder();
+    this.getOrder()
   },
-  components:{
+  components: {
     pagination
   }
-};
+}
 </script>

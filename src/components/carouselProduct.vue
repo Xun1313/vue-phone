@@ -1,24 +1,24 @@
 <template>
-  <div id="carouselExampleFade" class="carousel slide carousel-fade all" data-ride="carousel">
+  <section id="carouselExampleFade" class="carousel slide carousel-fade all" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-interval="2000">
         <div class="carousel-product carousel-product-1">
-          <!-- <p>
-  告 別 舊 機
-  迎 接 新 機
-          </p> -->
+          <h4>
+            大 不 凡 你的掌上巨屏
+          </h4>
         </div>
       </div>
       <div class="carousel-item" data-interval="2000">
         <div class="carousel-product carousel-product-2">
-          <p>輕易 不說完美</p>
+          <h4>輕易 不說完美</h4>
         </div>
       </div>
       <div class="carousel-item" data-interval="2000">
         <div class="carousel-product carousel-product-3">
-          <p>
-            大 不 凡 你的掌上巨屏
-          </p>
+          <!-- <h4>
+  告 別 舊 機
+  迎 接 新 機
+          </h4> -->
         </div>
       </div>
     </div>
@@ -30,78 +30,48 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
 @import '../assets/_grid.scss';
 @import '../assets/_mixin.scss';
-.all {
-  margin-top: 60px;
-  @include padTOdeskTop() {
-    margin-top: 114px;
-  }
-}
 .carousel-product {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   @include bg();
   width: 100%;
   height: 45vh;
   @include padTOdeskTop() {
     height: 100vh;
   }
-  p {
-    padding: 0 10px;
+  &-1 {
+    background-image: url('../assets/carousel/carousel-product-1.jpg');
   }
-  //position: absolute;
-}
-
-.carousel-product-1 {
-  background-image: url('../assets/carousel/carousel-product-1.jpg');
-  p {
-    position: absolute;
-    bottom: 0%;
-    right: 10%;
-    white-space: pre;
-    color: wheat;
-    font-weight: 900;
-    font-size: 30px;
-    @include cellPhone() {
-      font-size: 22px;
-    }
-    @include pad() {
-      font-size: 22px;
-    }
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
+  &-2 {
+    background-image: url('../assets/carousel/carousel-product-2.jpg');
   }
-}
-.carousel-product-2 {
-  background-image: url('../assets/carousel/carousel-product-2.jpg');
-  p {
-    position: absolute;
-    bottom: 0%;
-    left: 10%;
+  &-3 {
+    background-image: url('../assets/carousel/carousel-product-3.jpg');
+    h4 {
+      margin-bottom: 30px;
+      color: wheat;
+      font-size: 30px;
+      @include cellPhone() {
+        font-size: 22px;
+      }
+      @include pad() {
+        font-size: 22px;
+      }
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+    }
+  }
+  h4 {
+    margin-bottom: 30px;
     color: white;
     font-size: 45px;
-    white-space: pre;
-    @include pad() {
-      font-size: 40px;
-    }
-    @include cellPhone() {
-      font-size: 30px;
-    }
-  }
-}
-.carousel-product-3 {
-  background-image: url('../assets/carousel/carousel-product-3.jpg');
-  p {
-    position: absolute;
-    bottom: 0%;
-    right: 10%;
-    color: rgb(255, 255, 255);
-    font-size: 45px;
-    white-space: pre;
-    font-weight: bolder;
     @include pad() {
       font-size: 40px;
     }

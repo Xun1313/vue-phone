@@ -1,17 +1,17 @@
 <template>
-  <div class="done">
-    <h1 class="done-title">恭喜你</h1>
+  <section class="done">
+    <h2 class="done-title">恭喜你</h2>
     <p class="done-word">付款完成</p>
     <router-link to="/" class="done-home">繼續購物</router-link>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   created() {
-    this.$bus.$emit('progress', 3);
-  },
-};
+    this.$bus.$emit('progress', 3)
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -25,15 +25,14 @@ export default {
   margin: auto;
   text-align: center;
   padding: 80px 0;
-  &-home{
+  &-home {
     color: white;
     background-color: $important;
-    cursor: pointer;
     padding: 10px 20px;
     transition: 0.5s all;
+    text-decoration: none;
     &:hover {
-      color: $important;
-      background-color: white;
+      background-color: darken($important, 10%);
     }
   }
 }

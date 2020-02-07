@@ -1,35 +1,37 @@
 <template>
-  <div class="prog container">
+  <header class="prog container">
     <div class="prog-item phase" ref="prog-item1">
-      <div class="prog-item-num">1</div>
-      <div class="prog-item-name">輸入訂單資料</div>
+      <h5 class="prog-item-num">1</h5>
+      <h5 class="prog-item-name">輸入訂單資料</h5>
       <i class="fas fa-angle-right prog-item-arrow"></i>
     </div>
 
     <div class="prog-item" ref="prog-item2">
-      <div class="prog-item-num">2</div>
-      <div class="prog-item-name">確認付款</div>
+      <h5 class="prog-item-num">2</h5>
+      <h5 class="prog-item-name">確認付款</h5>
       <i class="fas fa-angle-right prog-item-arrow"></i>
     </div>
 
     <div class="prog-item" ref="prog-item3">
-      <div class="prog-item-num center">3</div>
-      <div class="prog-item-name center2">完成</div>
+      <h5 class="prog-item-num center">3</h5>
+      <h5 class="prog-item-name center2">完成</h5>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
 export default {
   created() {
     this.$bus.$on('progress', num => {
-      const numArr = [1, 2, 3];
+      const numArr = [1, 2, 3]
       numArr.forEach(e => {
-        e === num ? this.$refs[`prog-item${num}`].classList.add('phase') : this.$refs[`prog-item${e}`].classList.remove('phase');
-      });
-    });
-  },
-};
+        e === num
+          ? this.$refs[`prog-item${num}`].classList.add('phase')
+          : this.$refs[`prog-item${e}`].classList.remove('phase')
+      })
+    })
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -37,7 +39,7 @@ export default {
 @import '../assets/_grid.scss';
 .prog {
   display: flex;
-  margin: 140px 0 50px;
+  margin: 50px 0 ;
   align-items: center;
   justify-content: center;
   &-item {

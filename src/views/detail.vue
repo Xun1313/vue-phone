@@ -1,11 +1,11 @@
 <template>
-  <div class="animated fadeIn slow">
+  <section>
     <div class="container all">
       <div class="row">
-        <div class="col-12 col-lg-6 mt-5">
+        <div class="col-lg-6">
           <img :src="product.imageUrl" class="mx-auto d-block img-fluid" style="width:230px" />
           <div class="detail">
-            <div class="detail-title">商品特色</div>
+            <h5 class="detail-title">商品特色</h5>
             <ul class="detail-group">
               <li class="detail-group-item">
                 <i class="fas fa-box"></i>
@@ -21,20 +21,23 @@
               </li>
             </ul>
           </div>
-          <div class="d-flex detail justify-content-between mt-3"></div>
         </div>
-        <div class="col-12 col-lg-6 mt-5">
+        <div class="col-lg-6">
           <div class="d-flex flex-column">
             <blockquote class="blockquote">
               <p class="blockquote-title">{{ product.title }}</p>
-              <footer class="blockquote-footer">{{ product.description }}</footer>
+              <footer class="blockquote-footer">
+                {{ product.description }}
+              </footer>
             </blockquote>
             <div class="d-flex justify-content-between align-items-baseline">
-              <div class="h5" v-if="!product.price">{{ product.origin_price | currency }}</div>
+              <div class="h5" v-if="!product.price">
+                {{ product.origin_price | currency }}
+              </div>
               <del class="h6" v-if="product.price">原價{{ product.origin_price | currency }}</del>
               <div class="h5" v-if="product.price">現在只要{{ product.price | currency }}</div>
             </div>
-            <select name class="form-control my-3" v-model="product.num">
+            <select class="form-control my-3" v-model="product.num">
               <option :value="num" v-for="num in 10" :key="num">選購{{ num }}{{ product.unit }}</option>
             </select>
           </div>
@@ -45,57 +48,57 @@
           <!-- <button type="button" class="btn bg-dark text-white ml-auto d-block"></button> -->
           <button type="button" class="cart" @click="addtoCart(product.id, product.num)">
             <i class="fas fa-shopping-cart"></i>
-            <span>加到購物車</span>
+            <h5>加到購物車</h5>
           </button>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      orderId: '',
-    };
+      orderId: ''
+    }
   },
   methods: {
     //點產品名稱進去用的
     getProduct() {
-      this.$store.dispatch('getProduct', this.orderId);
+      this.$store.dispatch('getProduct', this.orderId)
     },
     addtoCart(id, qty = 1) {
-      const api = `${process.env.VUE_APP_API}/api/adam/cart`;
+      const api = `${process.env.VUE_APP_API}/api/adam/cart`
       const cart = {
         product_id: id,
-        qty,
-      };
+        qty
+      }
       this.$http.post(api, { data: cart }).then(res => {
-        console.log(res);
+        console.log(res)
         if (res.data.success) {
-          this.$bus.$emit('show');
-          this.$bus.$emit('dark');
+          this.$bus.$emit('show')
+          this.$bus.$emit('dark')
         }
-      });
-    },
+      })
+    }
   },
   computed: {
     product() {
-      return this.$store.state.product;
-    },
+      return this.$store.state.product
+    }
   },
   created() {
-    this.orderId = this.$route.params.orderId;
-    this.getProduct();
-  },
-};
+    this.orderId = this.$route.params.orderId
+    this.getProduct()
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/_variable.scss';
 .all {
-  margin-top: 155px;
+  margin-top: 50px;
 }
 .blockquote {
   &-title {
@@ -135,20 +138,23 @@ export default {
 }
 .cart {
   background-color: $important;
-  padding: 5px;
+  padding: 10px;
   margin: 0 0 0 auto;
   color: white;
-  cursor: pointer;
   text-align: center;
   transition: 0.5s all;
   display: block;
   width: 200px;
-  &:focus {
-    outline: none;
-  }
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
-    color: $important;
-    background-color: white;
+    background-color: darken($important, 10%);
+  }
+  h5 {
+    margin: 0 0 0 5px;
+    font-size: 20px;
   }
 }
 </style>

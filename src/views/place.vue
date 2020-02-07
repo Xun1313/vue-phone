@@ -1,9 +1,9 @@
 <template>
-  <div class="animated fadeIn slow">
-    <div class="swiper-container all">
+  <section>
+    <section class="swiper-container place-container">
       <div class="parallax-bg" data-swiper-parallax="-23%"></div>
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <article class="swiper-slide">
           <div class="title" data-swiper-parallax="-300">台北三創</div>
           <div class="subtitle" data-swiper-parallax="-200">大型專賣店</div>
           <div class="text" data-swiper-parallax="-100">
@@ -11,18 +11,19 @@
               台北三創門市在2015年5月成立於台北市十大建設之一的三創生活園區內，門市經營團隊擁有專業3C商品銷售經驗，店內展示全系列產品，提供顧客完整的體驗。
             </p>
           </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="title" data-swiper-parallax="-300" data-swiper-parallax-opacity="0">台中公益</div>
+        </article>
+        <article class="swiper-slide">
+          <div class="title" data-swiper-parallax="-300" data-swiper-parallax-opacity="0">
+            台中公益
+          </div>
           <div class="subtitle" data-swiper-parallax="-200">大型專賣店</div>
           <div class="text" data-swiper-parallax="-100">
             <p>
-              台中公益大型專賣店在2018年9月份開幕。門市內有全系列實機展示、VIVE
-              HOME情境體驗區、多元配件及精品周邊、維修站進駐及數位教室等服務。
+              台中公益大型專賣店在2018年9月份開幕。門市內有全系列實機展示、VIVE HOME情境體驗區、多元配件及精品周邊、維修站進駐及數位教室等服務。
             </p>
           </div>
-        </div>
-        <div class="swiper-slide">
+        </article>
+        <article class="swiper-slide">
           <div class="title" data-swiper-parallax="-300">高雄</div>
           <div class="subtitle" data-swiper-parallax="-200">大型專賣店</div>
           <div class="text" data-swiper-parallax="-100">
@@ -30,15 +31,15 @@
               高雄大型專賣店坐落於南台灣3C指標商圈之建國商圈，秉持南台灣的熱情我們提供喜歡的朋友一起來交流分享使用經驗與體驗多元服務。
             </p>
           </div>
-        </div>
+        </article>
       </div>
       <!-- Add Pagination -->
       <div class="swiper-pagination swiper-pagination-white"></div>
       <!-- Add Navigation -->
       <div class="swiper-button-prev swiper-button-white"></div>
       <div class="swiper-button-next swiper-button-white"></div>
-    </div>
-    <div class="container mt-5">
+    </section>
+    <section class="container mt-5">
       <em class="text-center mb-4 h2 d-block place-title">
         <i class="fas fa-location-arrow"></i>
         服務據點
@@ -47,11 +48,11 @@
         <div class="col-12 col-md-6">
           <div class="accordion" id="accordionExample">
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <header class="card-header" id="headingOne">
                 <button type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   台北
                 </button>
-              </div>
+              </header>
 
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
@@ -69,11 +70,11 @@
               </div>
             </div>
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <header class="card-header" id="headingOne">
                 <button type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                   台中
                 </button>
-              </div>
+              </header>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                   <h3 class="mb-3">台中公益 大型專賣店</h3>
@@ -90,11 +91,11 @@
               </div>
             </div>
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <header class="card-header" id="headingOne">
                 <button type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                   高雄
                 </button>
-              </div>
+              </header>
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                   <h3 class="mb-3">高雄 大型專賣店</h3>
@@ -129,12 +130,13 @@
           </gmap-map> -->
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </section>
 </template>
 
 <script>
-import Swiper from 'swiper';
+import Swiper from 'swiper'
+import 'swiper/dist/css/swiper.min.css'
 export default {
   data() {
     return {
@@ -142,73 +144,66 @@ export default {
       infoWindowPos: null,
       infoWinOpen: false,
       currentMidx: null,
-      infoWinOpen: false,
       infoOptions: {
         pixelOffset: {
           width: 0,
-          height: -35,
-        },
+          height: -35
+        }
       },
       infoCurrentKey: null,
       center: { lat: 23.79927226459908, lng: 121.18234536240907 },
       markers: [
         {
           position: { lat: 25.0470227, lng: 121.5125523 },
-          infoText: '台北維修店',
+          infoText: '台北維修店'
         },
         {
           position: { lat: 24.1366623, lng: 120.6833504 },
-          infoText: '台中維修店',
+          infoText: '台中維修店'
         },
         {
           position: { lat: 22.6418339, lng: 120.2984191 },
-          infoText: '高雄維修店',
-        },
-      ],
-    };
+          infoText: '高雄維修店'
+        }
+      ]
+    }
   },
   methods: {
     toggleInfoWindow(marker, idx) {
-      this.infoWindowPos = marker.position;
-      this.infoContent = marker.infoText;
+      this.infoWindowPos = marker.position
+      this.infoContent = marker.infoText
       //check if its the same marker that was selected if yes toggle
       if (this.currentMidx == idx) {
-        this.infoWinOpen = !this.infoWinOpen;
+        this.infoWinOpen = !this.infoWinOpen
       }
       //if different marker set infowindow to open and reset current marker index
       else {
-        this.infoWinOpen = true;
-        this.currentMidx = idx;
+        this.infoWinOpen = true
+        this.currentMidx = idx
       }
-    },
+    }
   },
   mounted() {
-    var swiper = new Swiper('.swiper-container', {
+    new Swiper('.place-container', {
       speed: 600,
       parallax: true,
       pagination: {
         el: '.swiper-pagination',
-        clickable: true,
+        clickable: true
       },
       navigation: {
         nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  },
-};
+        prevEl: '.swiper-button-prev'
+      }
+    })
+  }
+}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/_mixin.scss';
 @import '../assets/_grid.scss';
 @import '../assets/_variable.scss';
-.all {
-  margin-top: 60px;
-  @include padTOdeskTop {
-    margin-top: 112px;
-  }
-}
 html,
 body {
   position: relative;

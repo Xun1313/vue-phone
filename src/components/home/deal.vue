@@ -8,29 +8,29 @@
             <div class="col-6 col-md-3">
               <article class="deal-item">
                 <i class="fas fa-truck"></i>
-                <h4 class="deal-item-title">免運費</h4>
-                <h5 class="deal-item-word">全館免運費</h5>
+                <p class="deal-item-title">免運費</p>
+                <p class="deal-item-word">全館免運費</p>
               </article>
             </div>
             <div class="col-6 col-md-3">
               <article class="deal-item">
                 <i class="fas fa-recycle"></i>
-                <h4 class="deal-item-title">退貨條款</h4>
-                <h5 class="deal-item-word">完整的售後服務</h5>
+                <p class="deal-item-title">退貨條款</p>
+                <p class="deal-item-word">完整的售後服務</p>
               </article>
             </div>
             <div class="col-6 col-md-3">
               <article class="deal-item">
                 <i class="fas fa-user-alt"></i>
-                <h4 class="deal-item-title">24小時客服</h4>
-                <h5 class="deal-item-word">解答所有問題</h5>
+                <p class="deal-item-title">24小時客服</p>
+                <p class="deal-item-word">解答所有問題</p>
               </article>
             </div>
             <div class="col-6 col-md-3">
               <article class="deal-item">
                 <i class="fas fa-hand-holding-usd"></i>
-                <h4 class="deal-item-title">安全付款</h4>
-                <h5 class="deal-item-word">買家安心</h5>
+                <p class="deal-item-title">安全付款</p>
+                <p class="deal-item-word">買家安心</p>
               </article>
             </div>
           </div>

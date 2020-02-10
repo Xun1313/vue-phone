@@ -4,33 +4,38 @@
       <div class="parallax-bg" data-swiper-parallax="-23%"></div>
       <div class="swiper-wrapper">
         <article class="swiper-slide">
-          <div class="title" data-swiper-parallax="-300">台北三創</div>
-          <div class="subtitle" data-swiper-parallax="-200">大型專賣店</div>
-          <div class="text" data-swiper-parallax="-100">
+          <h3 class="title" data-swiper-parallax="-300">台北三創</h3>
+          <h5 class="subtitle" data-swiper-parallax="-200">大型專賣店</h5>
+          <article class="text" data-swiper-parallax="-100">
             <p>
               台北三創門市在2015年5月成立於台北市十大建設之一的三創生活園區內，門市經營團隊擁有專業3C商品銷售經驗，店內展示全系列產品，提供顧客完整的體驗。
             </p>
-          </div>
+          </article>
         </article>
         <article class="swiper-slide">
-          <div class="title" data-swiper-parallax="-300" data-swiper-parallax-opacity="0">
+          <h3
+            class="title"
+            data-swiper-parallax="-300"
+            data-swiper-parallax-opacity="0"
+          >
             台中公益
-          </div>
-          <div class="subtitle" data-swiper-parallax="-200">大型專賣店</div>
-          <div class="text" data-swiper-parallax="-100">
+          </h3>
+          <h5 class="subtitle" data-swiper-parallax="-200">大型專賣店</h5>
+          <article class="text" data-swiper-parallax="-100">
             <p>
-              台中公益大型專賣店在2018年9月份開幕。門市內有全系列實機展示、VIVE HOME情境體驗區、多元配件及精品周邊、維修站進駐及數位教室等服務。
+              台中公益大型專賣店在2018年9月份開幕。門市內有全系列實機展示、VIVE
+              HOME情境體驗區、多元配件及精品周邊、維修站進駐及數位教室等服務。
             </p>
-          </div>
+          </article>
         </article>
         <article class="swiper-slide">
-          <div class="title" data-swiper-parallax="-300">高雄</div>
-          <div class="subtitle" data-swiper-parallax="-200">大型專賣店</div>
-          <div class="text" data-swiper-parallax="-100">
+          <h3 class="title" data-swiper-parallax="-300">高雄</h3>
+          <h5 class="subtitle" data-swiper-parallax="-200">大型專賣店</h5>
+          <article class="text" data-swiper-parallax="-100">
             <p>
               高雄大型專賣店坐落於南台灣3C指標商圈之建國商圈，秉持南台灣的熱情我們提供喜歡的朋友一起來交流分享使用經驗與體驗多元服務。
             </p>
-          </div>
+          </article>
         </article>
       </div>
       <!-- Add Pagination -->
@@ -49,17 +54,29 @@
           <div class="accordion" id="accordionExample">
             <div class="card">
               <header class="card-header" id="headingOne">
-                <button type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
                   台北
                 </button>
               </header>
 
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordionExample"
+              >
                 <div class="card-body">
                   <h3 class="mb-3">台北三創 大型專賣店</h3>
                   <p>
                     台北市中正區市民大道三段2號1樓R105-2櫃
-                    <br />(02)23513290 分機2151 <br />週日~週四 11:00~21:30 <br />週五~週六及國定假日前夕 11:00~22:00
+                    <br />(02)23513290 分機2151 <br />週日~週四 11:00~21:30
+                    <br />週五~週六及國定假日前夕 11:00~22:00
                   </p>
                   <p>
                     技術諮詢、維修進度專線 : 0809-090166
@@ -71,16 +88,28 @@
             </div>
             <div class="card">
               <header class="card-header" id="headingOne">
-                <button type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <button
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseTwo"
+                  aria-expanded="true"
+                  aria-controls="collapseTwo"
+                >
                   台中
                 </button>
               </header>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div
+                id="collapseTwo"
+                class="collapse"
+                aria-labelledby="headingTwo"
+                data-parent="#accordionExample"
+              >
                 <div class="card-body">
                   <h3 class="mb-3">台中公益 大型專賣店</h3>
                   <p>
                     台中市西區公益路154號 / (04)23293781
-                    <br />週日~週四 11:00~21:30 <br />週五、週六及國定假日前夕 11:00~22:00
+                    <br />週日~週四 11:00~21:30 <br />週五、週六及國定假日前夕
+                    11:00~22:00
                     <br />
                   </p>
                   <p>
@@ -92,11 +121,22 @@
             </div>
             <div class="card">
               <header class="card-header" id="headingOne">
-                <button type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <button
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseThree"
+                  aria-expanded="true"
+                  aria-controls="collapseThree"
+                >
                   高雄
                 </button>
               </header>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div
+                id="collapseThree"
+                class="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#accordionExample"
+              >
                 <div class="card-body">
                   <h3 class="mb-3">高雄 大型專賣店</h3>
                   <p>
@@ -113,21 +153,26 @@
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <!-- <gmap-map :center="center" :zoom="7" style="width: 100%; height: 500px">
+          <gmap-map
+            :center="center"
+            :zoom="7"
+            style="width: 100%; height: 500px"
+          >
             <gmap-info-window
               :options="infoOptions"
               :position="infoWindowPos"
               :opened="infoWinOpen"
-              @closeclick="infoWinOpen=false"
-            >{{infoContent}}</gmap-info-window>
+              @closeclick="infoWinOpen = false"
+              >{{ infoContent }}</gmap-info-window
+            >
             <gmap-marker
               :key="i"
-              v-for="(m,i) in markers"
+              v-for="(m, i) in markers"
               :position="m.position"
               :clickable="true"
-              @click="toggleInfoWindow(m,i)"
+              @click="toggleInfoWindow(m, i)"
             ></gmap-marker>
-          </gmap-map> -->
+          </gmap-map>
         </div>
       </div>
     </section>

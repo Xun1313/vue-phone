@@ -1,19 +1,19 @@
 <template>
   <header class="prog container">
     <div class="prog-item phase" ref="prog-item1">
-      <h5 class="prog-item-num">1</h5>
+      <p class="prog-item-num">1</p>
       <h5 class="prog-item-name">輸入訂單資料</h5>
       <i class="fas fa-angle-right prog-item-arrow"></i>
     </div>
 
     <div class="prog-item" ref="prog-item2">
-      <h5 class="prog-item-num">2</h5>
+      <p class="prog-item-num">2</p>
       <h5 class="prog-item-name">確認付款</h5>
       <i class="fas fa-angle-right prog-item-arrow"></i>
     </div>
 
     <div class="prog-item" ref="prog-item3">
-      <h5 class="prog-item-num center">3</h5>
+      <p class="prog-item-num center">3</p>
       <h5 class="prog-item-name center2">完成</h5>
     </div>
   </header>
@@ -39,7 +39,7 @@ export default {
 @import '../assets/_grid.scss';
 .prog {
   display: flex;
-  margin: 50px 0 ;
+  margin: 50px 0;
   align-items: center;
   justify-content: center;
   &-item {
@@ -55,6 +55,7 @@ export default {
       background-color: rgba(128, 128, 128, 0.6);
       text-align: center;
       padding: 5px 15px;
+      margin-bottom: 0;
       @include padTOdeskTop {
         margin-right: 5px;
       }

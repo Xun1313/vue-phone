@@ -1,50 +1,75 @@
 <template>
-  <section class="cart container" v-if="cart.carts ? cart.carts.length !== 0 : false">
-    <h2 class="cart-title" v-if="cart.carts">共{{ cart.carts.length }}項商品</h2>
+  <section
+    class="cart container"
+    v-if="cart.carts ? cart.carts.length !== 0 : false"
+  >
+    <h2 class="cart-title" v-if="cart.carts">
+      共{{ cart.carts.length }}項商品
+    </h2>
     <div class="cart-item" v-for="item in cart.carts" :key="item.id">
       <div class="cart-item-flex">
         <img :src="item.product.imageUrl" alt="" class="cart-item-flex-pic" />
         <div class="cart-item-flex-title">
           <h4 class="primary">{{ item.product.title }}</h4>
-          <h4 class="secondary">品牌:{{ item.product.category }}</h4>
-          <h4 class="qty">數量:{{ item.qty }}{{ item.product.unit }}</h4>
+          <p class="secondary">品牌:{{ item.product.category }}</p>
+          <p class="qty">數量:{{ item.qty }}{{ item.product.unit }}</p>
         </div>
-        <button type="button" class="cart-item-flex-cancel" @click="removeCartItem(item.id)">
+        <button
+          type="button"
+          class="cart-item-flex-cancel"
+          @click="removeCartItem(item.id)"
+        >
           <i class="fas fa-times "></i>
         </button>
       </div>
       <article class="cart-item-flex">
-        <h4 class="cart-item-flex-price" v-if="item.final_total === item.total">NT{{ item.final_total | currency }}</h4>
-        <div class="cart-item-flex-price" v-else>
-          <h5 class="discount">折扣後</h5>
-          <h5 class="final">NT{{ item.final_total | currency }}</h5>
-          <h5 class="save">省NT{{ (item.total - item.final_total) | currency }}</h5>
-        </div>
+        <h4 class="cart-item-flex-price" v-if="item.final_total === item.total">
+          NT{{ item.final_total | currency }}
+        </h4>
+        <article class="cart-item-flex-price" v-else>
+          <p class="discount">折扣後</p>
+          <p class="final">NT{{ item.final_total | currency }}</p>
+          <p class="save">
+            省NT{{ (item.total - item.final_total) | currency }}
+          </p>
+        </article>
       </article>
     </div>
 
     <article class="cart-block">
       <div class="cart-block-sum">
-        <h4 class="cart-block-sum-name">商品金額小計</h4>
-        <h4 class="cart-block-sum-price">NT{{ cart.total | currency }}</h4>
+        <p class="cart-block-sum-name">商品金額小計</p>
+        <p class="cart-block-sum-price">NT{{ cart.total | currency }}</p>
       </div>
       <div class="cart-block-sum line">
-        <h4 class="cart-block-sum-name">活動折扣</h4>
-        <h4 class="cart-block-sum-price">-NT{{ (cart.total - cart.final_total) | currency }}</h4>
+        <p class="cart-block-sum-name">活動折扣</p>
+        <p class="cart-block-sum-price">
+          -NT{{ (cart.total - cart.final_total) | currency }}
+        </p>
       </div>
       <div class="cart-block-sum">
-        <h4 class="cart-block-sum-name" v-if="cart.carts">共{{ cart.carts.length }}項商品</h4>
-        <h4 class="cart-block-sum-price final">NT{{ cart.final_total | currency }}</h4>
+        <p class="cart-block-sum-name" v-if="cart.carts">
+          共{{ cart.carts.length }}項商品
+        </p>
+        <p class="cart-block-sum-price final">
+          NT{{ cart.final_total | currency }}
+        </p>
       </div>
       <div class="cart-block-coupon">
         <label for="num" class="cart-block-coupon-title">優惠券</label>
         <div class="cart-block-coupon-flex">
-          <input type="text" class="num" id="num" placeholder="請輸入123456" v-model="coupon_code" />
+          <input
+            type="text"
+            class="num"
+            id="num"
+            placeholder="請輸入123456"
+            v-model="coupon_code"
+          />
           <button type="button" class="use" @click="addCouponCode">使用</button>
         </div>
       </div>
       <div class="cart-block-sum" v-if="couponSwitch">
-        <h4 class="cart-block-sum-coupon">(已套用優惠券)</h4>
+        <p class="cart-block-sum-coupon">(已套用優惠券)</p>
       </div>
       <router-link to="/check-out" class="cart-block-next">下一步</router-link>
     </article>
@@ -75,12 +100,14 @@ export default {
     },
     removeCartItem(id) {
       this.$store.dispatch('updateLoading', true)
-      this.$http.delete(`${process.env.VUE_APP_API}/api/adam/cart/${id}`).then(res => {
-        console.log(res)
-        this.getCart()
-        this.$bus.$emit('show')
-        this.$store.dispatch('updateLoading', false)
-      })
+      this.$http
+        .delete(`${process.env.VUE_APP_API}/api/adam/cart/${id}`)
+        .then(res => {
+          console.log(res)
+          this.getCart()
+          this.$bus.$emit('show')
+          this.$store.dispatch('updateLoading', false)
+        })
     },
     addCouponCode() {
       this.$store.dispatch('updateLoading', true)
@@ -380,5 +407,8 @@ h4 {
 }
 h5 {
   font-size: 18px;
+}
+p {
+  margin-bottom: 0;
 }
 </style>

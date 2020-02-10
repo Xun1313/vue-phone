@@ -6,35 +6,50 @@
           <figure class="shop-item">
             <div class="shop-item-shadow" @click="shopHandler('iPhone')"></div>
             <figcaption>Shop For iPhone</figcaption>
-            <img src="../../assets/shop/photo-1541560052-3744e48ab80b.jpg" alt="" />
+            <img
+              src="../../assets/shop/photo-1541560052-3744e48ab80b.jpg"
+              alt=""
+            />
           </figure>
         </div>
         <div class="swiper-slide">
           <figure class="shop-item">
             <div class="shop-item-shadow" @click="shopHandler('Sony')"></div>
             <figcaption>Shop For Sony</figcaption>
-            <img src="../../assets/shop/photo-1545081576-5b7e640c083a.jpg" alt="" />
+            <img
+              src="../../assets/shop/photo-1545081576-5b7e640c083a.jpg"
+              alt=""
+            />
           </figure>
         </div>
         <div class="swiper-slide">
           <figure class="shop-item">
             <div class="shop-item-shadow" @click="shopHandler('Asus')"></div>
             <figcaption>Shop For Asus</figcaption>
-            <img src="../../assets/shop/photo-1545557475-d4b104feaf66.jpg" alt="" />
+            <img
+              src="../../assets/shop/photo-1545557475-d4b104feaf66.jpg"
+              alt=""
+            />
           </figure>
         </div>
         <div class="swiper-slide">
           <figure class="shop-item">
             <div class="shop-item-shadow" @click="shopHandler('HTC')"></div>
             <figcaption>Shop For HTC</figcaption>
-            <img src="../../assets/shop/photo-1545921406-e8a234c30d85.jpg" alt="" />
+            <img
+              src="../../assets/shop/photo-1545921406-e8a234c30d85.jpg"
+              alt=""
+            />
           </figure>
         </div>
         <div class="swiper-slide">
           <figure class="shop-item">
             <div class="shop-item-shadow" @click="shopHandler('Samsung')"></div>
             <figcaption>Shop For Samsung</figcaption>
-            <img src="../../assets/shop/photo-1553011435-eff1060044b9.jpg" alt="" />
+            <img
+              src="../../assets/shop/photo-1553011435-eff1060044b9.jpg"
+              alt=""
+            />
           </figure>
         </div>
         <!-- <div class="swiper-pagination"></div> -->

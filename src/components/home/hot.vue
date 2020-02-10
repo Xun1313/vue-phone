@@ -1,28 +1,69 @@
 <template>
   <section class="hot container">
     <ul class="hot-nav">
-      <li class="hot-nav-item" :class="{ focus: focus === '特色產品' }" @click="focusHandler('特色產品')">特色產品</li>
-      <li class="hot-nav-item" :class="{ focus: focus === '熱銷產品' }" @click="focusHandler('熱銷產品')">熱銷產品</li>
-      <li class="hot-nav-item" :class="{ focus: focus === '最新上市' }" @click="focusHandler('最新上市')">最新上市</li>
+      <li
+        class="hot-nav-item"
+        :class="{ focus: focus === '特色產品' }"
+        @click="focusHandler('特色產品')"
+      >
+        特色產品
+      </li>
+      <li
+        class="hot-nav-item"
+        :class="{ focus: focus === '熱銷產品' }"
+        @click="focusHandler('熱銷產品')"
+      >
+        熱銷產品
+      </li>
+      <li
+        class="hot-nav-item"
+        :class="{ focus: focus === '最新上市' }"
+        @click="focusHandler('最新上市')"
+      >
+        最新上市
+      </li>
     </ul>
     <!-- <h2 class="hot-title">熱銷產品</h2>
     <div class="line"></div> -->
     <section class="product">
-      <loading :active.sync="isLoading" :opacity="1" :is-full-page="false" :z-index="1000"></loading>
+      <loading
+        :active.sync="isLoading"
+        :opacity="1"
+        :is-full-page="false"
+        :z-index="1000"
+      ></loading>
       <swiper :options="swiperOption" ref="hotSwiper">
         <swiper-slide v-for="item in AllProducts" :key="item.id">
           <div class="product-item">
-            <div class="product-item-pic" @click="routeHandler(item.id)" :style="`background-image:url(${item.imageUrl})`"></div>
+            <div
+              class="product-item-pic"
+              @click="routeHandler(item.id)"
+              :style="`background-image:url(${item.imageUrl})`"
+            ></div>
             <div class="product-item-flex">
-              <h4 class="product-item-flex-price">{{ item.price | currency }}</h4>
-              <h4 class="product-item-flex-origin">{{ item.origin_price | currency }}</h4>
+              <h4 class="product-item-flex-price">
+                {{ item.price | currency }}
+              </h4>
+              <h4 class="product-item-flex-origin">
+                {{ item.origin_price | currency }}
+              </h4>
             </div>
-            <router-link :to="`/detail/${item.id}`" class="product-item-title">{{ item.title }}</router-link>
+            <router-link
+              :to="`/detail/${item.id}`"
+              class="product-item-title"
+              >{{ item.title }}</router-link
+            >
           </div>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-        <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
-        <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
+        <div
+          class="swiper-button-prev swiper-button-black"
+          slot="button-prev"
+        ></div>
+        <div
+          class="swiper-button-next swiper-button-black"
+          slot="button-next"
+        ></div>
       </swiper>
     </section>
   </section>

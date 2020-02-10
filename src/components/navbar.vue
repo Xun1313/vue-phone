@@ -33,23 +33,25 @@
       </div>
 
       <div class="style" ref="style">
-        <router-link class="style-logo" to="/">SOGI</router-link>
+        <h1>
+          <router-link class="style-logo" to="/">SOGI</router-link>
+        </h1>
         <div class="style-group">
           <router-link class="style-group-route" to="/new-product">
-            <div class="style-group-route-name">最新產品</div>
+            <p class="style-group-route-name">最新產品</p>
             <i class="fab fa-hotjar"></i>
           </router-link>
           <router-link class="style-group-route" to="/primary-product">
-            <div class="style-group-route-name">全部商品</div>
+            <p class="style-group-route-name">全部商品</p>
             <i class="fas fa-mobile-alt fa-lg"></i>
           </router-link>
           <router-link class="style-group-route" to="/place">
-            <div class="style-group-route-name">服務據點</div>
+            <p class="style-group-route-name">服務據點</p>
             <i class="fas fa-map-marker-alt"></i>
           </router-link>
           <!-- <router-link to="/login">後台</router-link> -->
           <router-link to="/cart" class="style-group-cart style-group-route">
-            <div class="style-group-route-name">購物車</div>
+            <p class="style-group-route-name">購物車</p>
             <span class="badge badge-danger">{{ cart }}</span>
             <i class="fas fa-shopping-cart fa-lg"></i>
           </router-link>
@@ -60,7 +62,7 @@
     <div class="dark" ref="dark">
       <div class="dark-bg none" ref="dark-bg">
         <i class="fas fa-cart-plus dark-bg-icon"></i>
-        <div class="dark-bg-word">加入成功</div>
+        <p class="dark-bg-word">加入成功</p>
       </div>
     </div>
   </div>
@@ -69,7 +71,7 @@
 <style lang="scss" scoped>
 @import '../assets/_grid.scss';
 @import '../assets/_variable.scss';
-@import url('https://fonts.googleapis.com/css?family=Ma+Shan+Zheng&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sriracha&display=swap');
 label {
   cursor: pointer;
   margin: 0;
@@ -142,7 +144,7 @@ label {
   }
   &-logo {
     display: block;
-    //font-family: 'Ma Shan Zheng', cursive;
+    font-family: 'Sriracha', cursive;
     text-decoration: none;
     color: white;
     font-size: 40px;
@@ -151,8 +153,7 @@ label {
       margin: 0 auto;
     }
     text-align: center;
-    padding: 0;
-    width: 78px;
+    padding: 6px 0;
     &:hover {
       color: white;
       text-decoration: none;
@@ -168,7 +169,7 @@ label {
       align-items: center;
       padding: 15px;
       &-name {
-        margin-right: 5px;
+        margin: 0 5px 0 0;
         display: none;
         @include padTOdeskTop {
           display: block;
@@ -225,10 +226,13 @@ label {
   display: none;
   z-index: -10;
 }
+h1 {
+  margin-bottom: 0;
+}
 </style>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 export default {

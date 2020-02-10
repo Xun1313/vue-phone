@@ -2,14 +2,26 @@
   <section class="flex-column align-items-center desk">
     <h4>品牌</h4>
     <ul class="brand">
-      <li class="brand-item" :class="{ focus: item === brand }" v-for="(item, i) in categories" :key="item + i" @click="filterBrand($event, item)">
+      <li
+        class="brand-item"
+        :class="{ focus: item === brand }"
+        v-for="(item, i) in categories"
+        :key="item + i"
+        @click="filterBrand($event, item)"
+      >
         {{ item }}
       </li>
     </ul>
 
     <h4>價格</h4>
     <ul class="price">
-      <li class="price-item" :class="{ focus: item === price }" v-for="(item, index) in priceArr" :key="item + index" @click="priceSort($event, item)">
+      <li
+        class="price-item"
+        :class="{ focus: item === price }"
+        v-for="(item, index) in priceArr"
+        :key="item + index"
+        @click="priceSort($event, item)"
+      >
         {{ item }}
       </li>
     </ul>

@@ -17,7 +17,9 @@
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="3" class="goods-table-sum">總計{{ order.total | currency }}</td>
+            <td colspan="3" class="goods-table-sum">
+              總計{{ order.total | currency }}
+            </td>
           </tr>
         </tfoot>
       </table>
@@ -56,7 +58,9 @@
 
     <section class="route" v-if="order.is_paid === false">
       <router-link class="route-home" to="/">繼續購物</router-link>
-      <button type="button" class="route-pay" @click="payOrder">確認付款</button>
+      <button type="button" class="route-pay" @click="payOrder">
+        確認付款
+      </button>
     </section>
   </div>
 </template>
@@ -76,20 +80,24 @@ export default {
   methods: {
     getOrder() {
       this.$store.dispatch('updateLoading', true)
-      this.$http.get(`${process.env.VUE_APP_API}/api/adam/order/${this.orderId}`).then(res => {
-        console.log(res)
-        this.order = res.data.order
-        this.$store.dispatch('updateLoading', false)
-      })
+      this.$http
+        .get(`${process.env.VUE_APP_API}/api/adam/order/${this.orderId}`)
+        .then(res => {
+          console.log(res)
+          this.order = res.data.order
+          this.$store.dispatch('updateLoading', false)
+        })
     },
     payOrder() {
-      this.$http.post(`${process.env.VUE_APP_API}/api/adam/pay/${this.orderId}`).then(res => {
-        console.log(res)
-        if (res.data.success) {
-          this.getOrder()
-          this.$router.push('/check-out/check-ok')
-        }
-      })
+      this.$http
+        .post(`${process.env.VUE_APP_API}/api/adam/pay/${this.orderId}`)
+        .then(res => {
+          console.log(res)
+          if (res.data.success) {
+            this.getOrder()
+            this.$router.push('/check-out/check-ok')
+          }
+        })
     }
   },
   created() {
@@ -169,7 +177,7 @@ export default {
 h2 {
   font-size: 18px;
 }
-h5{
+h5 {
   font-size: 16px;
 }
 </style>

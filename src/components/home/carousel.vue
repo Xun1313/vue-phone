@@ -1,9 +1,17 @@
 <template>
   <section class="container-fluid p-0">
     <div class="bd-example">
-      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide"
+        data-ride="carousel"
+      >
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li
+            data-target="#carouselExampleCaptions"
+            data-slide-to="0"
+            class="active"
+          ></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
         </ol>
@@ -24,17 +32,29 @@
           </div>
           <div class="carousel-item" data-interval="90000">
             <div class="img img3">
-              <article class="d-md-flex carousel-title-3 justify-content-end align-items-end">
+              <article
+                class="d-md-flex carousel-title-3 justify-content-end align-items-end"
+              >
                 <h5>高性能與長續航</h5>
               </article>
             </div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleCaptions"
+          role="button"
+          data-slide="prev"
+        >
           <span class="carousel-control-prev-icon bg" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleCaptions"
+          role="button"
+          data-slide="next"
+        >
           <span class="carousel-control-next-icon bg" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
@@ -85,7 +105,7 @@
   opacity: 0.5;
   border-radius: 10px;
   padding: 20px;
-    width: 250px;
-    margin: auto;
+  width: 250px;
+  margin: auto;
 }
 </style>

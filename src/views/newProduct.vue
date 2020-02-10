@@ -1,6 +1,12 @@
 <template>
   <section class="new" ref="new">
-    <video src="../assets/newProduct/sony-video-2.mp4" autoplay loop class="sony-video-2" @click="play('.sony-video-2')">
+    <video
+      src="../assets/newProduct/sony-video-2.mp4"
+      autoplay
+      loop
+      class="sony-video-2"
+      @click="play('.sony-video-2')"
+    >
       Your browser does not support the video tag.
     </video>
     <section class="phone container">
@@ -24,13 +30,22 @@
       <article class="phone-content">
         <h2 class="phone-content-title">SONY Xperia 1</h2>
         <h4 class="phone-content-title">為多工處理而打造的螢幕</h4>
-        <p class="phone-content-word text-muted">6.5 吋 21:9 CinemaWide 螢幕讓你的智慧型手機有更多運用空間。寬顯示幕改善了多工處理的體驗，讓你開啟兩個視窗時能夠看到更多東西。</p>
+        <p class="phone-content-word text-muted">
+          6.5 吋 21:9 CinemaWide
+          螢幕讓你的智慧型手機有更多運用空間。寬顯示幕改善了多工處理的體驗，讓你開啟兩個視窗時能夠看到更多東西。
+        </p>
       </article>
     </section>
     <section class="film mt-5" data-aos="fade-up" ref="film">
       <div class="film-bg">
         <div class="container">
-          <video src="../assets/newProduct/sony-video-1.mp4" autoplay class="film-bg-video" ref="film-bg-video" @click="play('.film-bg-video')">
+          <video
+            src="../assets/newProduct/sony-video-1.mp4"
+            autoplay
+            class="film-bg-video"
+            ref="film-bg-video"
+            @click="play('.film-bg-video')"
+          >
             Your browser does not support the video tag.
           </video>
         </div>
@@ -39,7 +54,8 @@
         <article class="film-container-content">
           <h3 class="my-3">Sony首款 三鏡頭手機</h3>
           <p>
-            自由切換拍照鏡頭、拍出最理想的照片！Xperia 1 搭載三鏡頭相機，包含 16mm 超廣角鏡頭、多功能 26mm 鏡頭和具有 2 倍光學變焦的 52mm
+            自由切換拍照鏡頭、拍出最理想的照片！Xperia 1 搭載三鏡頭相機，包含
+            16mm 超廣角鏡頭、多功能 26mm 鏡頭和具有 2 倍光學變焦的 52mm
             鏡頭，可以因應各種不同環境及拍照需求、自行切換運用，即使在嚴苛的低亮度環境、都能捕捉美麗影像。
           </p>
         </article>
@@ -52,7 +68,9 @@
         <article class="group-content">
           <h3 class="my-3">導入α數位單眼相機的功能</h3>
           <p>
-            Xperia 1 採用全新BIONZ X™手機影像處理技術，導入α數位單眼相機技術，獨家內建多種α相機專業技術，Xperia 1輕鬆擁有大師級的拍照能力。
+            Xperia 1 採用全新BIONZ
+            X™手機影像處理技術，導入α數位單眼相機技術，獨家內建多種α相機專業技術，Xperia
+            1輕鬆擁有大師級的拍照能力。
           </p>
         </article>
       </div>
@@ -65,14 +83,16 @@
         <div class="col-md-6 my-4 newProduct-word" data-aos="fade-up">
           <h3>低光源RAW降噪拍照</h3>
           <p class="text-muted">
-            夜拍更加清晰銳利！Xperia 1 支援最新「RAW檔降噪」功能，能在相片原始檔狀態即減少噪點，讓最終輸出影像更加清晰銳利。加上F1.6大光圈及大的像素面積，即使在低光環境下也能有好的畫質。
+            夜拍更加清晰銳利！Xperia 1
+            支援最新「RAW檔降噪」功能，能在相片原始檔狀態即減少噪點，讓最終輸出影像更加清晰銳利。加上F1.6大光圈及大的像素面積，即使在低光環境下也能有好的畫質。
           </p>
         </div>
 
         <div class="col-md-6 my-4 newProduct-word" data-aos="fade-up">
           <h3>10連拍 自動對焦/ 自動曝光拍照</h3>
           <p class="text-muted">
-            拍攝動態主體，就是清晰標準！有了「10 fps高速連拍搭配自動對焦及自動曝光追蹤」，即使拍攝主體正在移動，依然能使用連拍模式拍攝畫質清晰、對焦精準與亮度平衡的完美相片。
+            拍攝動態主體，就是清晰標準！有了「10
+            fps高速連拍搭配自動對焦及自動曝光追蹤」，即使拍攝主體正在移動，依然能使用連拍模式拍攝畫質清晰、對焦精準與亮度平衡的完美相片。
           </p>
         </div>
         <div class="col-md-6 my-4" data-aos="fade-left">
@@ -85,7 +105,8 @@
         <div class="col-md-6 my-4 newProduct-word" data-aos="fade-up">
           <h3>手動模式 30秒快門</h3>
           <p class="text-muted">
-            快門延長，拍照樂趣更廣！透過手動控制可自行設定快門速度及ISO值，高達 30 秒的曝光時間、讓你就像使用專業相機般、輕鬆拍出車軌夜景或星空！
+            快門延長，拍照樂趣更廣！透過手動控制可自行設定快門速度及ISO值，高達
+            30 秒的曝光時間、讓你就像使用專業相機般、輕鬆拍出車軌夜景或星空！
           </p>
         </div>
       </div>
@@ -96,7 +117,8 @@
         <article class="group-content">
           <h3 class="my-3">SteadyShot™ 光學防手震</h3>
           <p>
-            Xperia 1擁有獨特的混合穩定系統，同時融合光學影像穩定功能與電子影像穩定功能。即使在移動時，都能錄製無震動、流暢的影片。
+            Xperia
+            1擁有獨特的混合穩定系統，同時融合光學影像穩定功能與電子影像穩定功能。即使在移動時，都能錄製無震動、流暢的影片。
           </p>
         </article>
       </div>
@@ -110,64 +132,88 @@
             <div class="standard-group1-item-pic">
               <i class="fas fa-tablet-alt"></i>
             </div>
-            <h5 class="standard-group1-item-content">21:9 CinemaWide™ 4K HDR OLED 顯示幕</h5>
+            <p class="standard-group1-item-content">
+              21:9 CinemaWide™ 4K HDR OLED 顯示幕
+            </p>
           </div>
           <div class="standard-group1-item">
             <div class="standard-group1-item-pic">
               <i class="fas fa-camera-retro"></i>
             </div>
-            <h5 class="standard-group1-item-content">搭載 2 倍光學變焦與廣角鏡頭的三鏡頭相機系統</h5>
+            <p class="standard-group1-item-content">
+              搭載 2 倍光學變焦與廣角鏡頭的三鏡頭相機系統
+            </p>
           </div>
           <div class="standard-group1-item">
             <div class="standard-group1-item-pic">
               <i class="fas fa-video"></i>
             </div>
-            <h5 class="standard-group1-item-content">4K HDR 影片錄製</h5>
+            <p class="standard-group1-item-content">4K HDR 影片錄製</p>
           </div>
           <div class="standard-group1-item">
             <div class="standard-group1-item-pic">
               <i class="fab fa-soundcloud"></i>
             </div>
-            <h5 class="standard-group1-item-content">劇院級的 Dolby Atmos® 音效</h5>
+            <p class="standard-group1-item-content">
+              劇院級的 Dolby Atmos® 音效
+            </p>
           </div>
           <div class="standard-group1-item">
             <div class="standard-group1-item-pic">
               <i class="fas fa-battery-three-quarters"></i>
             </div>
-            <h5 class="standard-group1-item-content">3330mAh 高容量電池</h5>
+            <p class="standard-group1-item-content">3330mAh 高容量電池</p>
           </div>
         </div>
         <div class="standard-group2">
           <article class="standard-group2-item">
-            <h4 class="standard-group2-item-title">SIM 卡功能</h4>
-            <h5 class="standard-group2-item-content">單卡, 雙 SIM 卡混合 (一張 Nano SIM 卡配一張 Nano SIM 卡，或一張 microSD™ 卡)5, Nano SIM 卡</h5>
+            <p class="standard-group2-item-title">SIM 卡功能</p>
+            <p class="standard-group2-item-content">
+              單卡, 雙 SIM 卡混合 (一張 Nano SIM 卡配一張 Nano SIM 卡，或一張
+              microSD™ 卡)5, Nano SIM 卡
+            </p>
           </article>
           <article class="standard-group2-item">
-            <h4 class="standard-group2-item-title">記憶體與儲存空間</h4>
-            <h5 class="standard-group2-item-content">6GB RAM, 支援 microSDXC (最高 512GB), 128GB ROM (UFS 內建記憶體)8</h5>
+            <p class="standard-group2-item-title">記憶體與儲存空間</p>
+            <p class="standard-group2-item-content">
+              6GB RAM, 支援 microSDXC (最高 512GB), 128GB ROM (UFS 內建記憶體)8
+            </p>
           </article>
           <article class="standard-group2-item">
-            <h4 class="standard-group2-item-title">顯示幕</h4>
-            <h5 class="standard-group2-item-content">21:9 CinemaWideTM 顯示幕1, 6.5 吋 4K HDR OLED (1644x3840), 「由 CineAlta 支援」的創作模式。本功能受 Master Monitor 色彩重製技術啟發, 手機版 X1TM</h5>
+            <p class="standard-group2-item-title">顯示幕</p>
+            <p class="standard-group2-item-content">
+              21:9 CinemaWideTM 顯示幕1, 6.5 吋 4K HDR OLED (1644x3840), 「由
+              CineAlta 支援」的創作模式。本功能受 Master Monitor
+              色彩重製技術啟發, 手機版 X1TM
+            </p>
           </article>
           <article class="standard-group2-item">
-            <h4 class="standard-group2-item-title">相機</h4>
-            <h5 class="standard-group2-item-content">三鏡頭相機系統, 12MP + 12MP + 12MP, 16mm 超廣角, 52mm 望遠鏡頭, 2x 光學變焦, 8 MP 正面相機</h5>
+            <p class="standard-group2-item-title">相機</p>
+            <p class="standard-group2-item-content">
+              三鏡頭相機系統, 12MP + 12MP + 12MP, 16mm 超廣角, 52mm 望遠鏡頭, 2x
+              光學變焦, 8 MP 正面相機
+            </p>
           </article>
           <article class="standard-group2-item">
-            <h4 class="standard-group2-item-title">內部配備</h4>
-            <h5 class="standard-group2-item-content">Qualcomm® 驍龍™ 855 行動平台6</h5>
+            <p class="standard-group2-item-title">內部配備</p>
+            <p class="standard-group2-item-content">
+              Qualcomm® 驍龍™ 855 行動平台6
+            </p>
           </article>
           <article class="standard-group2-item">
-            <h4 class="standard-group2-item-title">重量</h4>
-            <h5 class="standard-group2-item-content">178 公克</h5>
+            <p class="standard-group2-item-title">重量</p>
+            <p class="standard-group2-item-content">178 公克</p>
           </article>
         </div>
       </div>
     </section>
 
     <section class="sony-6">
-      <div class="sony-6-bgi pic-height" data-aos="fade-right" data-aos-duration="3000"></div>
+      <div
+        class="sony-6-bgi pic-height"
+        data-aos="fade-right"
+        data-aos-duration="3000"
+      ></div>
       <h3>沉浸饗宴 大師級娛樂體驗</h3>
     </section>
   </section>
@@ -483,5 +529,8 @@ export default {
 }
 .swiper-slide:nth-child(8) {
   background-image: url('../assets/swiper_phone/swiper-8.png');
+}
+p {
+  margin-bottom: 0;
 }
 </style>

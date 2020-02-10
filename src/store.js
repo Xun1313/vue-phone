@@ -14,18 +14,22 @@ export default new Vuex.Store({
     },
     getProduct(context, payload) {
       context.commit('LOADING', true)
-      axios.get(`${process.env.VUE_APP_API}/api/adam/product/${payload}`).then(res => {
-        context.commit('GETPRODUCT', res.data.product)
-        context.commit('LOADING', false)
-      })
+      axios
+        .get(`${process.env.VUE_APP_API}/api/adam/product/${payload}`)
+        .then(res => {
+          context.commit('GETPRODUCT', res.data.product)
+          context.commit('LOADING', false)
+        })
     },
-    getAllProducts(context, payload) {
+    getAllProducts(context) {
       context.commit('LOADING', true)
-      axios.get(`${process.env.VUE_APP_API}/api/adam/products/all`).then(res => {
-        context.commit('GETALLPRODUCTS', res.data.products)
-        context.commit('CATEGORIES', res.data.products)
-        context.commit('LOADING', false)
-      })
+      axios
+        .get(`${process.env.VUE_APP_API}/api/adam/products/all`)
+        .then(res => {
+          context.commit('GETALLPRODUCTS', res.data.products)
+          context.commit('CATEGORIES', res.data.products)
+          context.commit('LOADING', false)
+        })
     }
   },
   mutations: {
@@ -77,7 +81,7 @@ export default new Vuex.Store({
     scrollAbout: {
       name: 'about',
       params: { scroll: 'about' }
-    },
+    }
   },
   //類似computed
   getters: {

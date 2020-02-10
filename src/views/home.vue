@@ -45,7 +45,11 @@
                 <router-link :to="scrollDiscount">了解更多</router-link>
               </article>
             </div>
-            <img src="../assets/discount/discount1.jpg" alt="" class="discount-all-pic discount-all-pic1" />
+            <img
+              src="../assets/discount/discount1.jpg"
+              alt=""
+              class="discount-all-pic discount-all-pic1"
+            />
           </div>
         </div>
         <div class="col-md-6">
@@ -57,7 +61,11 @@
               </article>
             </div>
             <!-- <div class="discount-pic"></div> -->
-            <img src="../assets/discount/discount2.jpg" alt="" class="discount-all-pic discount-all-pic2" />
+            <img
+              src="../assets/discount/discount2.jpg"
+              alt=""
+              class="discount-all-pic discount-all-pic2"
+            />
           </div>
         </div>
       </div>
@@ -104,7 +112,9 @@
               </div>
             </div>
           </div>
-          <router-link to="/new-product" class="title4-more">了解更多</router-link>
+          <router-link to="/new-product" class="title4-more"
+            >了解更多</router-link
+          >
         </div>
       </div>
     </section>
@@ -114,7 +124,13 @@
         <!-- width="560"
           height="315" -->
         <div class="video-container">
-          <iframe class="video-container-iframe" src="https://www.youtube.com/embed/gEw_C4H7WTc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            class="video-container-iframe"
+            src="https://www.youtube.com/embed/gEw_C4H7WTc"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
         <div class="video-word">
           <h3 class="video-word-title">【Sony Xperia XZ3 正式發售！】</h3>
@@ -134,8 +150,6 @@ import hot from '../components/home/hot'
 import count from '../components/home/count'
 import deal from '../components/home/deal'
 import info from '../components/home/info'
-import Swiper from 'swiper'
-import 'swiper/dist/css/swiper.min.css'
 export default {
   computed: {
     AllProducts() {

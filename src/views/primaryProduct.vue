@@ -9,9 +9,13 @@
           <!-- 主要商品內容 -->
           <div class="col-sm-6" v-for="item in filterSort" :key="item.id">
             <div class="card shadow-lg rounded mb-4">
-              <!-- , `col-md-${col.col_md}` -->
               <figure class="primaryProduct">
-                <img class="img-fluid mx-auto d-block primaryProduct-pic" :src="item.imageUrl" @click.prevent="toDetail(item.id)" alt />
+                <img
+                  class="img-fluid mx-auto d-block primaryProduct-pic"
+                  :src="item.imageUrl"
+                  @click.prevent="toDetail(item.id)"
+                  alt
+                />
               </figure>
               <article class="card-body p-2">
                 <h5 class="card-title text-center">{{ item.title }}</h5>
@@ -23,8 +27,12 @@
                     <div class="h5" v-if="!item.price">
                       {{ item.origin_price }}
                     </div>
-                    <del class="h6 text-secondary" v-if="item.price">原價{{ item.origin_price | currency }}</del>
-                    <div class="h5" v-if="item.price">特價{{ item.price | currency }}</div>
+                    <del class="h6 text-secondary" v-if="item.price"
+                      >原價{{ item.origin_price | currency }}</del
+                    >
+                    <div class="h5" v-if="item.price">
+                      特價{{ item.price | currency }}
+                    </div>
                   </div>
                 </div>
                 <div class="card-body-cart" @click.prevent="addtoCart(item.id)">
@@ -35,7 +43,11 @@
                 </div>
               </article>
               <footer class="card-footer bg-white">
-                <button type="button" class="card-footer-buy" @click="getProduct(item.id)">
+                <button
+                  type="button"
+                  class="card-footer-buy"
+                  @click="getProduct(item.id)"
+                >
                   <i class="fa fa-caret-right" style="padding-left:3px;"></i>
                   立即搶購
                 </button>
@@ -45,18 +57,32 @@
         </div>
 
         <!-- 商品詳細 -->
-        <section class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <section
+          class="modal fade"
+          id="productModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
           <div class="modal-dialog modal-lg modal-my" role="document">
             <div class="modal-content border-0">
               <header class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
                   {{ product.title }}
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </header>
-              <article class="modal-body d-flex flex-column flex-lg-row justify-content-between">
+              <article
+                class="modal-body d-flex flex-column flex-lg-row justify-content-between"
+              >
                 <img :src="product.imageUrl" class="mx-auto img-fluid" />
                 <div class="d-flex flex-column p-3">
                   <blockquote class="blockquote">
@@ -65,24 +91,38 @@
                       {{ product.description }}
                     </footer>
                   </blockquote>
-                  <div class="d-flex justify-content-between align-items-baseline">
+                  <div
+                    class="d-flex justify-content-between align-items-baseline"
+                  >
                     <div class="h5" v-if="!product.price">
                       {{ product.origin_price }}
                     </div>
-                    <del class="h6" v-if="product.price">原價{{ product.origin_price | currency }}</del>
-                    <div class="h5" v-if="product.price">現在只要{{ product.price | currency }}</div>
+                    <del class="h6" v-if="product.price"
+                      >原價{{ product.origin_price | currency }}</del
+                    >
+                    <div class="h5" v-if="product.price">
+                      現在只要{{ product.price | currency }}
+                    </div>
                   </div>
                   <select name class="form-control mt-3" v-model="product.num">
-                    <option v-for="num in 10" :value="num" :key="num">選購{{ num }}{{ product.unit }}</option>
+                    <option v-for="num in 10" :value="num" :key="num"
+                      >選購{{ num }}{{ product.unit }}</option
+                    >
                   </select>
                 </div>
               </article>
               <footer class="modal-footer">
                 <div class="text-muted text-nowrap mr-3">
                   小計
-                  <strong>{{ (product.price * product.num) | currency }}</strong>
+                  <strong>{{
+                    (product.price * product.num) | currency
+                  }}</strong>
                 </div>
-                <button type="button" class="modal-footer-cart" @click="addtoCart(product.id, product.num)">
+                <button
+                  type="button"
+                  class="modal-footer-cart"
+                  @click="addtoCart(product.id, product.num)"
+                >
                   <i class="fas fa-shopping-cart"></i>
                   加到購物車
                 </button>
@@ -119,7 +159,6 @@ export default {
         qty
       }
       this.$http.post(api, { data: cart }).then(res => {
-        console.log(res)
         if (res.data.success) {
           //this.$bus.$emit('push', '已加入購物車', 'danger');
           this.$bus.$emit('show')
@@ -163,7 +202,8 @@ export default {
     this.getAllProducts()
     if (this.$store.state.brand !== '全部') {
       window.scrollTo({
-        top: this.$refs['scroll-product'].offsetTop - this.$store.state.navHeight,
+        top:
+          this.$refs['scroll-product'].offsetTop - this.$store.state.navHeight,
         left: 0,
         behavior: 'smooth'
       })

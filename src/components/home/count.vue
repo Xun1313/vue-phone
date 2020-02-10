@@ -7,23 +7,25 @@
           <h5 class="count-content-title">把握最後機會</h5>
           <article class="count-content-group">
             <article class="count-content-group-item">
-              <h5 class="num">{{ time.day }}</h5>
-              <h5 class="unit">天</h5>
+              <p class="num">{{ time.day }}</p>
+              <p class="unit">天</p>
             </article>
             <article class="count-content-group-item">
-              <h5 class="num">{{ time.hour }}</h5>
-              <h5 class="unit">小時</h5>
+              <p class="num">{{ time.hour }}</p>
+              <p class="unit">小時</p>
             </article>
             <article class="count-content-group-item">
-              <h5 class="num">{{ time.minute }}</h5>
-              <h5 class="unit">分鐘</h5>
+              <p class="num">{{ time.minute }}</p>
+              <p class="unit">分鐘</p>
             </article>
             <article class="count-content-group-item">
-              <h5 class="num">{{ time.second }}</h5>
-              <h5 class="unit">秒</h5>
+              <p class="num">{{ time.second }}</p>
+              <p class="unit">秒</p>
             </article>
           </article>
-          <router-link class="count-content-search" to="/primary-product">查看商品</router-link>
+          <router-link class="count-content-search" to="/primary-product"
+            >查看商品</router-link
+          >
         </article>
       </div>
     </section>
@@ -35,19 +37,29 @@
             <article class="product-bg-content">
               <h2 class="product-bg-content-title">{{ item.title }}</h2>
               <h5 class="product-bg-content-word">{{ word[index] }}</h5>
-              <h5 class="product-bg-content-price">
-                <h5 class="origin">{{ item.origin_price | currency }}</h5>
-                <h5 class="now">{{ item.price | currency }}</h5>
-              </h5>
-              <router-link class="product-bg-content-route" :to="`/detail/${item.id}`">了解更多</router-link>
+              <div class="product-bg-content-price">
+                <p class="origin">{{ item.origin_price | currency }}</p>
+                <p class="now">{{ item.price | currency }}</p>
+              </div>
+              <router-link
+                class="product-bg-content-route"
+                :to="`/detail/${item.id}`"
+                >了解更多</router-link
+              >
             </article>
           </div>
         </swiper-slide>
 
         <!-- Optional controls -->
         <!-- <div class="swiper-pagination" slot="pagination"></div> -->
-        <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-        <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+        <div
+          class="swiper-button-prev swiper-button-white"
+          slot="button-prev"
+        ></div>
+        <div
+          class="swiper-button-next swiper-button-white"
+          slot="button-next"
+        ></div>
       </swiper>
     </section>
   </section>
@@ -117,9 +129,11 @@
         .num {
           font-size: 30px;
           width: 35px;
+          margin: 0;
         }
         .unit {
           font-size: 16px;
+          margin: 0;
         }
       }
     }
@@ -178,7 +192,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        h5 + h5 {
+        p + p {
           margin-left: 30px;
           text-decoration: line-through;
           opacity: 0.7;
@@ -257,14 +271,18 @@ export default {
         second: ''
       },
       count: '',
-      word: ['精準呈現陰影和焦點', '集結相機、顯示器、效能於一身', '強大功能盡在手上'],
+      word: [
+        '精準呈現陰影和焦點',
+        '集結相機、顯示器、效能於一身',
+        '強大功能盡在手上'
+      ],
       swiperOption: {
         slidesPerView: 1,
         loop: true,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
-        },
+        }
         /* pagination: {
           el: '.swiper-pagination',
           clickable: true
@@ -275,7 +293,11 @@ export default {
   computed: {
     products() {
       return this.$store.getters.AllProducts.filter(e => {
-        return e.id === '-Ldwz9oNMO_AHugLWWYt' || e.id === '-Ldx0bhpVTmLcE3sJvgM' || e.id === '-Ldx5GLb7skyDWpvibVy'
+        return (
+          e.id === '-Ldwz9oNMO_AHugLWWYt' ||
+          e.id === '-Ldx0bhpVTmLcE3sJvgM' ||
+          e.id === '-Ldx5GLb7skyDWpvibVy'
+        )
       })
     }
   },

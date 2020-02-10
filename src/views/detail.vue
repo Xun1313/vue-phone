@@ -3,7 +3,11 @@
     <div class="container all">
       <div class="row">
         <div class="col-lg-6">
-          <img :src="product.imageUrl" class="mx-auto d-block img-fluid" style="width:230px" />
+          <img
+            :src="product.imageUrl"
+            class="mx-auto d-block img-fluid"
+            style="width:230px"
+          />
           <div class="detail">
             <h5 class="detail-title">商品特色</h5>
             <ul class="detail-group">
@@ -34,11 +38,17 @@
               <div class="h5" v-if="!product.price">
                 {{ product.origin_price | currency }}
               </div>
-              <del class="h6" v-if="product.price">原價{{ product.origin_price | currency }}</del>
-              <div class="h5" v-if="product.price">現在只要{{ product.price | currency }}</div>
+              <del class="h6" v-if="product.price"
+                >原價{{ product.origin_price | currency }}</del
+              >
+              <div class="h5" v-if="product.price">
+                現在只要{{ product.price | currency }}
+              </div>
             </div>
             <select class="form-control my-3" v-model="product.num">
-              <option :value="num" v-for="num in 10" :key="num">選購{{ num }}{{ product.unit }}</option>
+              <option :value="num" v-for="num in 10" :key="num"
+                >選購{{ num }}{{ product.unit }}</option
+              >
             </select>
           </div>
           <div class="text-muted text-nowrap mb-3 text-right">
@@ -46,7 +56,11 @@
             <strong>{{ (product.price * product.num) | currency }}</strong>
           </div>
           <!-- <button type="button" class="btn bg-dark text-white ml-auto d-block"></button> -->
-          <button type="button" class="cart" @click="addtoCart(product.id, product.num)">
+          <button
+            type="button"
+            class="cart"
+            @click="addtoCart(product.id, product.num)"
+          >
             <i class="fas fa-shopping-cart"></i>
             <h5>加到購物車</h5>
           </button>

@@ -2,31 +2,76 @@
   <form class="info">
     <div class="form-group">
       <label for="useremail">Email</label>
-      <input type="email" class="form-control" name="email" id="useremail" v-model="form.user.email" placeholder="請輸入 Email" v-validate="'required|email'" :class="{ 'is-invalid': errors.has('email') }" />
-      <h5 class="text-danger" v-if="errors.has('email')">{{ errors.first('email') }}</h5>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        id="useremail"
+        v-model="form.user.email"
+        placeholder="請輸入 Email"
+        v-validate="'required|email'"
+        :class="{ 'is-invalid': errors.has('email') }"
+      />
+      <p class="text-danger" v-if="errors.has('email')">
+        {{ errors.first('email') }}
+      </p>
     </div>
 
     <div class="form-group">
       <label for="username">收件人姓名</label>
-      <input type="text" class="form-control" name="name" id="username" v-model="form.user.name" placeholder="輸入姓名" v-validate="'required'" :class="{ 'is-invalid': errors.has('name') }" />
-      <h5 class="text-danger" v-if="errors.has('name')">必須輸入姓名</h5>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        id="username"
+        v-model="form.user.name"
+        placeholder="輸入姓名"
+        v-validate="'required'"
+        :class="{ 'is-invalid': errors.has('name') }"
+      />
+      <p class="text-danger" v-if="errors.has('name')">必須輸入姓名</p>
     </div>
 
     <div class="form-group">
       <label for="usertel">收件人電話</label>
-      <input type="tel" class="form-control" id="usertel" name="tel" v-model="form.user.tel" placeholder="請輸入電話" v-validate="'required'" :class="{ 'is-invalid': errors.has('tel') }" />
-      <h5 class="text-danger" v-if="errors.has('tel')">必須輸入電話</h5>
+      <input
+        type="tel"
+        class="form-control"
+        id="usertel"
+        name="tel"
+        v-model="form.user.tel"
+        placeholder="請輸入電話"
+        v-validate="'required'"
+        :class="{ 'is-invalid': errors.has('tel') }"
+      />
+      <p class="text-danger" v-if="errors.has('tel')">必須輸入電話</p>
     </div>
 
     <div class="form-group">
       <label for="useraddress">收件人地址</label>
-      <input type="text" class="form-control" name="address" id="useraddress" v-model="form.user.address" placeholder="請輸入地址" v-validate="'required'" :class="{ 'is-invalid': errors.has('address') }" />
-      <h5 class="text-danger" v-if="errors.has('address')">必須輸入地址</h5>
+      <input
+        type="text"
+        class="form-control"
+        name="address"
+        id="useraddress"
+        v-model="form.user.address"
+        placeholder="請輸入地址"
+        v-validate="'required'"
+        :class="{ 'is-invalid': errors.has('address') }"
+      />
+      <p class="text-danger" v-if="errors.has('address')">必須輸入地址</p>
     </div>
 
     <div class="form-group">
       <label for="comment">留言</label>
-      <textarea name id="comment" class="form-control" cols="30" rows="10" v-model="form.message"></textarea>
+      <textarea
+        name
+        id="comment"
+        class="form-control"
+        cols="30"
+        rows="10"
+        v-model="form.message"
+      ></textarea>
     </div>
     <button type="button" class="send" @click="createOrder">送出訂單</button>
   </form>
@@ -98,7 +143,7 @@ export default {
     background-color: darken($important, 10%);
   }
 }
-h5{
+h5 {
   font-size: 18px;
 }
 </style>

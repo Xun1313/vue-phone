@@ -6,21 +6,27 @@
         ><div class="home-bgi-bg home-bgi-bg1"></div>
         <div class="home-bgi-item">
           <h5>大尺寸手機</h5>
-          <router-link to="/detail/-Ldx3DwmYrihvaU62aZX">了解更多 ></router-link>
+          <router-link to="/detail/-Ldx3DwmYrihvaU62aZX"
+            >了解更多 ></router-link
+          >
         </div></swiper-slide
       >
       <swiper-slide
         ><div class="home-bgi-bg home-bgi-bg2"></div>
         <div class="home-bgi-item">
           <h5>超清晰音質</h5>
-          <router-link to="/detail/-Ldx6ru9q78Q9YNiddV8">了解更多 ></router-link>
+          <router-link to="/detail/-Ldx6ru9q78Q9YNiddV8"
+            >了解更多 ></router-link
+          >
         </div></swiper-slide
       >
       <swiper-slide
         ><div class="home-bgi-bg home-bgi-bg3"></div>
         <div class="home-bgi-item">
           <h5>高畫素相機</h5>
-          <router-link to="/detail/-Ldx-rLYd13U4s2lxqCI">了解更多 ></router-link>
+          <router-link to="/detail/-Ldx-rLYd13U4s2lxqCI"
+            >了解更多 ></router-link
+          >
         </div></swiper-slide
       >
       <!-- Optional controls -->

@@ -33,8 +33,8 @@
       </div>
 
       <div class="style" ref="style">
-        <h1>
-          <router-link class="style-logo" to="/">SOGI</router-link>
+        <h1 class="style-logo">
+          <router-link to="/">SOGI</router-link>
         </h1>
         <div class="style-group">
           <router-link class="style-group-route" to="/new-product">
@@ -143,20 +143,23 @@ label {
     margin: auto;
   }
   &-logo {
-    display: block;
-    font-family: 'Sriracha', cursive;
-    text-decoration: none;
-    color: white;
-    font-size: 40px;
-    margin: 0 auto 0 5px;
+    width: 100px;
     @include padTOdeskTop {
-      margin: 0 auto;
+      margin: auto;
     }
+    margin: 0;
+    font-size: 40px;
     text-align: center;
     padding: 6px 0;
-    &:hover {
-      color: white;
+    a {
+      display: block;
+      font-family: 'Sriracha', cursive;
       text-decoration: none;
+      color: white;
+      margin: 0 auto 0 5px;
+      @include padTOdeskTop {
+        margin: 0 auto;
+      }
     }
   }
   &-group {

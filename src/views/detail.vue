@@ -55,7 +55,6 @@
             小計
             <strong>{{ (product.price * product.num) | currency }}</strong>
           </div>
-          <!-- <button type="button" class="btn bg-dark text-white ml-auto d-block"></button> -->
           <button
             type="button"
             class="cart"
@@ -89,7 +88,6 @@ export default {
         qty
       }
       this.$http.post(api, { data: cart }).then(res => {
-        console.log(res)
         if (res.data.success) {
           this.$bus.$emit('show')
           this.$bus.$emit('dark')

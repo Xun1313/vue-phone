@@ -23,8 +23,6 @@
         最新上市
       </li>
     </ul>
-    <!-- <h2 class="hot-title">熱銷產品</h2>
-    <div class="line"></div> -->
     <section class="product">
       <loading
         :active.sync="isLoading"
@@ -185,12 +183,6 @@
     -webkit-align-items: center;
     align-items: center;
     transition: 0.5s all;
-    /* &:nth-child(odd) {
-      margin: 0 30px 0 0;
-    }
-    &:nth-child(even) {
-      margin: 30px 30px 0 0;
-    } */
   }
   /deep/.swiper-pagination-bullet-active {
     background: $important;

@@ -42,7 +42,6 @@
 </template>
 
 <script>
-//import $ from "jquery";
 import { mapGetters } from 'vuex'
 export default {
   data() {
@@ -54,12 +53,10 @@ export default {
     filterBrand(e, brand) {
       e.preventDefault()
       this.$store.commit('BRAND', brand)
-      //$("#brandModal").modal("hide");
     },
     priceSort(e, level) {
       e.preventDefault()
       this.$store.commit('PRICE', level)
-      //$("#priceModal").modal("hide");
     },
     resetHandler() {
       this.$store.commit('BRAND', '全部')

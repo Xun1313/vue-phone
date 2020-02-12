@@ -18,12 +18,7 @@
         </div>
       </div>
       <div class="carousel-item" data-interval="2000">
-        <div class="carousel-product carousel-product-3">
-          <!-- <h4>
-  告 別 舊 機
-  迎 接 新 機
-          </h4> -->
-        </div>
+        <div class="carousel-product carousel-product-3"></div>
       </div>
     </div>
     <a

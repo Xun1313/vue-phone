@@ -1,7 +1,6 @@
 <template>
-  <div class="animated fadeIn delay-2s">
+  <div>
     <navbar></navbar>
-    <Alert></Alert>
     <router-view></router-view>
     <footers></footers>
   </div>
@@ -9,13 +8,10 @@
 
 <script>
 import navbar from '../components/navbar'
-import Alert from '../components/AlertMessage'
 import footers from '../components/footer'
-
 export default {
   components: {
     navbar,
-    Alert,
     footers
   }
 }

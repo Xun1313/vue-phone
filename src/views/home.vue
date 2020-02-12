@@ -5,35 +5,6 @@
     <shop></shop>
     <hot></hot>
     <count></count>
-    <!-- <div class="container">
-      <div class="headset-title">
-        <span>支援專業音樂技術</span>
-        <div class="line"></div>
-      </div>
-      <div class="headset">
-        <div class="headset-item">
-          <img src="../assets/headset/hi-res.jpg" alt="" class="headset-item-pic" />
-          <div class="headset-item-sentence">
-            <div class="title">
-              Hi-Res 高解析音樂
-            </div>
-            <div class="word">
-              Hi-Res高解析音樂，是對於聲音品質的新標準，音質細緻度是一般CD的四倍，媲美直接在錄音室聽現場演奏的感覺
-            </div>
-          </div>
-        </div>
-        <div class="headset-item">
-          <img src="../assets/headset/DSSEX.jpg" alt="" class="headset-item-pic" />
-          <div class="headset-item-sentence">
-            <div class="title">DSEE HX™ 數位音質還原技術</div>
-            <div class="word">
-              一般聽的MP3音樂都被壓縮過了，透過”數位音質還原技術”可以將MP3還原成CD音質。
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <section class="container discount">
       <h2 class="discount-title">優惠方案</h2>
       <div class="row">
@@ -60,7 +31,6 @@
                 <router-link :to="scrollDiscount">了解更多</router-link>
               </article>
             </div>
-            <!-- <div class="discount-pic"></div> -->
             <img
               src="../assets/discount/discount2.jpg"
               alt=""
@@ -121,8 +91,6 @@
 
     <section class="container">
       <div class="video">
-        <!-- width="560"
-          height="315" -->
         <div class="video-container">
           <iframe
             class="video-container-iframe"
@@ -185,55 +153,14 @@ export default {
 .home {
   overflow: hidden;
 }
-/* .headset-title {
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  margin-bottom: 20px;
-}
-.headset {
-  margin-bottom: 60px;
-  @include padTOdeskTop {
-    display: flex;
-  }
-  justify-content: center;
-  &-item {
-    @include padTOdeskTop {
-      width: 500px;
-    }
-    width: 100%;
-    margin: 0 0 30px 0;
-    & + & {
-      @include padTOdeskTop {
-        margin: 0 0 30px 15px;
-      }
-    }
-    &-pic {
-      width: 100%;
-      height: auto;
-      margin-bottom: 20px;
-    }
-    &-sentence {
-      padding: 0 15px;
-
-      .title {
-        font-weight: bold;
-        margin-bottom: 15px;
-      }
-      .word {
-        opacity: 0.6;
-      }
-    }
-  }
-} */
-.discount-title {
-  font-size: 18px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
-}
 .discount {
   margin: 50px auto;
+  &-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+  }
   &-all {
     display: flex;
     flex-direction: column;
@@ -308,13 +235,6 @@ export default {
       width: 53%;
       padding-bottom: 30%;
     }
-    //margin: auto;
-    /* width: 400px;
-    height: 225px;
-    @include padTOdeskTop {
-      width: 500px;
-      height: 281px;
-    } */
     &-iframe {
       position: absolute;
       width: 100%;
@@ -340,6 +260,7 @@ export default {
   @include bg;
   width: 100%;
   &-mask {
+    padding: 30px 0;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     min-height: 100vh;

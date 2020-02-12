@@ -258,7 +258,6 @@
 </style>
 
 <script>
-/* import Swiper from 'swiper' */
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.min.css'
 export default {
@@ -310,16 +309,6 @@ export default {
       this.time.minute = date.getMinutes()
       this.time.second = date.getSeconds()
     }, 1000)
-    /* window.onload = () => {
-      new Swiper('.product-container', {
-        slidesPerView: 1,
-        loop: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        }
-      })
-    } */
   },
   components: {
     swiper,

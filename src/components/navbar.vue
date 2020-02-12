@@ -212,6 +212,7 @@ label {
     }
     &-word {
       font-size: 20px;
+      white-space: nowrap;
     }
   }
 }

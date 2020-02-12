@@ -2,12 +2,7 @@
   <footer>
     <div class="container">
       <div class="footer">
-        <!-- <div class="footer-item">
-          <i class="fas fa-globe-africa"></i>
-          台灣
-        </div> -->
         <nav class="footer-all" @click="scrollHandler('about')">
-          <!--  -->
           <h4 class="footer-all-title">關於我們</h4>
           <router-link class="footer-all-item" :to="scrollAbout"
             >實體店面</router-link
@@ -20,7 +15,6 @@
           >
         </nav>
         <nav class="footer-all" @click="scrollHandler('shop')">
-          <!--  -->
           <h4 class="footer-all-title">購物說明</h4>
           <router-link class="footer-all-item" :to="scrollShop"
             >購物須知</router-link

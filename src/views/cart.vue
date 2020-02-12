@@ -8,7 +8,7 @@
     </h2>
     <div class="cart-item" v-for="item in cart.carts" :key="item.id">
       <div class="cart-item-flex">
-        <img :src="item.product.imageUrl" alt="" class="cart-item-flex-pic" />
+        <img :src="item.product.imageUrl" class="cart-item-flex-pic" />
         <div class="cart-item-flex-title">
           <h4 class="primary">{{ item.product.title }}</h4>
           <p class="secondary">品牌:{{ item.product.category }}</p>
@@ -93,7 +93,6 @@ export default {
     getCart() {
       this.$store.dispatch('updateLoading', true)
       this.$http.get(`${process.env.VUE_APP_API}/api/adam/cart`).then(res => {
-        console.log(res.data)
         this.cart = res.data.data
         this.$store.dispatch('updateLoading', false)
       })
@@ -102,8 +101,7 @@ export default {
       this.$store.dispatch('updateLoading', true)
       this.$http
         .delete(`${process.env.VUE_APP_API}/api/adam/cart/${id}`)
-        .then(res => {
-          console.log(res)
+        .then(() => {
           this.getCart()
           this.$bus.$emit('show')
           this.$store.dispatch('updateLoading', false)
@@ -116,7 +114,6 @@ export default {
         code: this.coupon_code
       }
       this.$http.post(api, { data: coupon }).then(res => {
-        console.log(res)
         if (res.data.success) {
           this.getCart()
           this.couponSwitch = true

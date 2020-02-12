@@ -226,11 +226,7 @@ export default {
   methods: {
     play(video) {
       const videos = document.querySelector(video)
-      if (videos.paused) {
-        videos.play()
-      } else {
-        videos.pause()
-      }
+      videos.paused ? videos.play() : videos.pause()
     }
   },
   mounted() {
@@ -246,10 +242,6 @@ export default {
         prevEl: '.swiper-button-prev'
       }
     })
-    //window.addEventListener('scroll', this.scrollHandler)
-  },
-  beforeDestroy() {
-    //window.removeEventListener('scroll', this.scrollHandler)
   }
 }
 </script>

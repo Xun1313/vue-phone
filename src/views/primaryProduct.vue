@@ -152,7 +152,6 @@ export default {
     },
     //前台加入購物車
     addtoCart(id, qty = 1) {
-      //this.$store.dispatch('updateLoading', true);
       const api = `${process.env.VUE_APP_API}/api/adam/cart`
       const cart = {
         product_id: id,
@@ -160,13 +159,11 @@ export default {
       }
       this.$http.post(api, { data: cart }).then(res => {
         if (res.data.success) {
-          //this.$bus.$emit('push', '已加入購物車', 'danger');
           this.$bus.$emit('show')
           this.$bus.$emit('dark')
         }
         $('#productModal').modal('hide')
       })
-      //this.$store.dispatch('updateLoading', false);
     },
     toDetail(orderId) {
       const vm = this
@@ -219,14 +216,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/_grid.scss';
 @import '../assets/_mixin.scss';
 @import '../assets/_variable.scss';
-/* .readMore {
-  width: 120px;
-  height: 40px;
-} */
 .modal-backdrop {
   z-index: -1;
 }
